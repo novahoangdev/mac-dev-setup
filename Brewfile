@@ -1,10 +1,13 @@
 # ==============================================================================
-# Brewfile — Mac Dev & Vibe Coding Setup
+# Full Brewfile — Mac Dev & Vibe Coding Setup
+# Installs the complete stack. For a smaller start, use Brewfile.minimal first.
+# Optional layers: Brewfile.ai and Brewfile.apps.
 # Run: brew bundle --file=Brewfile
 # ==============================================================================
 
 # Homebrew Bundle Tap
 tap "homebrew/bundle"
+tap "stablyai/orca"
 
 # Modern CLI Core Utilities
 brew "starship"
@@ -25,9 +28,11 @@ brew "pnpm"
 brew "uv"
 # AI Coding Agents
 brew "aider"
+cask "stablyai/orca/orca"
 
 # Applications (Casks)
 cask "cursor"
+cask "visual-studio-code"
 cask "zed"
 cask "claude"
 cask "chatgpt"

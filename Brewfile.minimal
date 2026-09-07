@@ -1,0 +1,27 @@
+# ==============================================================================
+# Minimal Brewfile — Mac Dev & Vibe Coding Setup
+# A fast, low-decision starting point for a new Apple Silicon Mac.
+# Run: brew bundle --file=Brewfile.minimal
+# Add the full AI, local-model, and productivity stack later with `Brewfile`.
+# ==============================================================================
+
+tap "homebrew/bundle"
+
+# Essential command-line workflow
+brew "starship"
+brew "eza"
+brew "bat"
+brew "ripgrep"
+brew "fzf"
+brew "zoxide"
+brew "gh"
+brew "tldr"
+brew "jq"
+brew "yq"
+
+# Reproducible runtime management
+brew "mise"
+
+# A focused editor and terminal baseline
+cask "cursor"
+cask "ghostty"

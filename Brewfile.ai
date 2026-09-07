@@ -1,0 +1,24 @@
+# ==============================================================================
+# AI Brewfile — Mac Dev & Vibe Coding Setup
+# Install after Brewfile.minimal when you are ready for AI-assisted development.
+# Run: brew bundle --file=Brewfile.ai
+# ==============================================================================
+
+tap "homebrew/bundle"
+
+# Terminal coding agent
+brew "aider"
+
+# Multi-agent worktree orchestration
+tap "stablyai/orca"
+cask "stablyai/orca/orca"
+
+# AI coding environments and desktop clients
+cask "visual-studio-code"
+cask "zed"
+cask "claude"
+cask "chatgpt"
+
+# Local-model runtimes (model downloads are separate and may be large)
+cask "ollama"
+cask "lm-studio"

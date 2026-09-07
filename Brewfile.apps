@@ -1,0 +1,15 @@
+# ==============================================================================
+# Productivity Apps Brewfile — Mac Dev & Vibe Coding Setup
+# Run: brew bundle --file=Brewfile.apps
+# ==============================================================================
+
+tap "homebrew/bundle"
+
+# Terminal, containers, and desktop productivity
+cask "ghostty"
+cask "orbstack"
+cask "raycast"
+cask "shottr"
+cask "jordanbaird-ice"
+cask "betterdisplay"
+cask "arc"

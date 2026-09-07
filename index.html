@@ -1094,15 +1094,15 @@ source ~/.zshrc</code></pre>
               <i data-lucide="copy" class="w-3.5 h-3.5"></i>
               <span class="copy-label" data-lang-en="Copy" data-lang-vi="Sao chép">Sao chép</span>
             </button>
-            <pre class="overflow-x-auto pr-20"><code><span class="text-slate-500"># Install mise via Homebrew</span>
+            <pre class="overflow-x-auto pr-20"><code><span class="text-slate-500"># Install mise via Homebrew (included in Brewfile.minimal)</span>
 brew install mise
 
-<span class="text-slate-500"># Activate mise in ~/.zshrc</span>
-echo 'eval "$(mise activate zsh)"' >> ~/.zshrc
-source ~/.zshrc
+<span class="text-slate-500"># Install this repository's pinned Node.js and Python runtimes</span>
+mise install
 
-<span class="text-slate-500"># Install and set global Node.js LTS</span>
-mise use --global node@lts</code></pre>
+<span class="text-slate-500"># Activate mise in Zsh once (safe to re-run)</span>
+grep -qxF 'eval "$(mise activate zsh)"' ~/.zshrc || echo 'eval "$(mise activate zsh)"' >> ~/.zshrc
+exec zsh</code></pre>
           </div>
         </div>
 
@@ -1259,13 +1259,13 @@ brew install --cask orbstack</code></pre>
           </div>
         </div>
 
-        <!-- 4.1.1 Cursor -->
+        <!-- 5.1.1 Cursor -->
         <div class="bg-surface-900 border border-slate-800 rounded-xl p-5 space-y-4 hover:border-slate-700 transition">
           <div class="flex items-start justify-between">
             <div>
               <h4 class="text-base font-semibold text-white flex items-center gap-2">
                 <i data-lucide="code-2" class="w-4 h-4 text-accent-rose"></i>
-                <span>4.1.1. Cursor — The AI-First Code Editor</span>
+                <span>5.1.1. Cursor — The AI-First Code Editor</span>
               </h4>
               <p class="text-xs text-slate-400 mt-1" data-lang-en="Built on VS Code: full Codebase Indexing, multi-file Composer Agent, and next-action prediction with Cursor Tab." data-lang-vi="Xây dựng trên nền VS Code: lập chỉ mục toàn bộ codebase, Composer Agent đa file và dự đoán hành vi code kế tiếp với Cursor Tab.">
                 Xây dựng trên nền VS Code: lập chỉ mục toàn bộ codebase, Composer Agent đa file và dự đoán hành vi code kế tiếp với Cursor Tab.
@@ -1335,7 +1335,7 @@ brew install --cask cursor</code></pre>
                   <tr>
                     <td class="p-2.5 font-mono text-accent-amber font-bold">@targeting</td>
                     <td class="p-2.5 font-medium text-slate-200">Context Targeting</td>
-                    <td class="p-2.5 text-slate-400" data-lang-en="Type `@filename` to focus AI on exact files (3x faster, less hallucinations)" data-lang-vi="Gõ `@tên_file` để AI tập trung đúng file cần sửa, phản hồi nhanh hơn gấp 3 lần">Gõ `@tên_file` để AI tập trung đúng file cần sửa, phản hồi nhanh hơn gấp 3 lần</td>
+                    <td class="p-2.5 text-slate-400" data-lang-en="Type `@filename` to focus AI on exact files, reduce irrelevant context, and keep edits scoped." data-lang-vi="Gõ `@tên_file` để AI tập trung đúng file cần sửa, giảm ngữ cảnh không liên quan và giữ phạm vi chỉnh sửa rõ ràng.">Gõ `@tên_file` để AI tập trung đúng file cần sửa, giảm ngữ cảnh không liên quan và giữ phạm vi chỉnh sửa rõ ràng.</td>
                   </tr>
                 </tbody>
               </table>
@@ -1343,13 +1343,36 @@ brew install --cask cursor</code></pre>
           </div>
         </div>
 
-        <!-- 4.1.2 Zed -->
+        <!-- 5.1.2 Visual Studio Code -->
+        <div class="bg-surface-900 border border-slate-800 rounded-xl p-5 space-y-4 hover:border-slate-700 transition">
+          <div class="flex items-start justify-between">
+            <div>
+              <h4 class="text-base font-semibold text-white flex items-center gap-2">
+                <i data-lucide="braces" class="w-4 h-4 text-accent-cyan"></i>
+                <span data-lang-en="5.1.2. Visual Studio Code — The Extensible AI Workbench" data-lang-vi="5.1.2. Visual Studio Code — Workbench AI Linh Hoạt">5.1.2. Visual Studio Code — Workbench AI Linh Hoạt</span>
+              </h4>
+              <p class="text-xs text-slate-400 mt-1" data-lang-en="The best choice when you want GitHub Copilot, Continue, Cline, or the broad VS Code extension ecosystem. Use it alongside Cursor only when each editor has a distinct role." data-lang-vi="Lựa chọn phù hợp khi bạn cần GitHub Copilot, Continue, Cline hoặc hệ sinh thái extension rộng của VS Code. Chỉ dùng song song với Cursor khi mỗi editor có một vai trò riêng.">
+                Lựa chọn phù hợp khi bạn cần GitHub Copilot, Continue, Cline hoặc hệ sinh thái extension rộng của VS Code. Chỉ dùng song song với Cursor khi mỗi editor có một vai trò riêng.
+              </p>
+            </div>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" onchange="toggleStep(this)" class="w-4 h-4 rounded bg-surface-800 border-slate-700 text-accent-cyan focus:ring-accent-cyan"><span class="text-xs text-slate-400 select-none" data-lang-en="Done" data-lang-vi="Xong">Xong</span></label>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 text-xs">
+            <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-950 hover:bg-surface-800 border border-slate-800 text-slate-300 hover:text-white transition"><i data-lucide="external-link" class="w-3 h-3 text-accent-cyan"></i><span>VS Code Official</span></a>
+          </div>
+          <div class="relative bg-surface-950 rounded-lg p-4 font-mono text-xs text-slate-200 border border-slate-800">
+            <button onclick="copyCode(this)" class="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-800 hover:bg-slate-700 text-slate-300 text-xs border border-slate-700 transition"><i data-lucide="copy" class="w-3.5 h-3.5"></i><span class="copy-label" data-lang-en="Copy" data-lang-vi="Sao chép">Sao chép</span></button>
+            <pre class="overflow-x-auto pr-20"><code>brew install --cask visual-studio-code</code></pre>
+          </div>
+        </div>
+
+        <!-- 5.1.3 Zed -->
         <div class="bg-surface-900 border border-slate-800 rounded-xl p-5 space-y-4 hover:border-slate-700 transition">
           <div class="flex items-start justify-between">
             <div>
               <h4 class="text-base font-semibold text-white flex items-center gap-2">
                 <i data-lucide="zap" class="w-4 h-4 text-accent-cyan"></i>
-                <span data-lang-en="4.1.2. Zed — Rust-Powered Ultra-Fast Code Editor" data-lang-vi="4.1.2. Zed — Code Editor Siêu Tốc Viết bằng Rust">4.1.2. Zed — Code Editor Siêu Tốc Viết bằng Rust</span>
+                <span data-lang-en="5.1.3. Zed — Rust-Powered Ultra-Fast Code Editor" data-lang-vi="5.1.3. Zed — Code Editor Siêu Tốc Viết bằng Rust">5.1.3. Zed — Code Editor Siêu Tốc Viết bằng Rust</span>
               </h4>
               <p class="text-xs text-slate-400 mt-1" data-lang-en="GPU-accelerated, launches in <10ms, multi-model AI assistant (Claude, GPT, Ollama local), and multiplayer collaboration." data-lang-vi="Tăng tốc bằng GPU, khởi động dưới 10ms, tích hợp sẵn trợ lý AI đa model và tính năng cộng tác trực tiếp real-time.">
                 Tăng tốc bằng GPU, khởi động dưới 10ms, tích hợp sẵn trợ lý AI đa model và tính năng cộng tác trực tiếp real-time.
@@ -1409,13 +1432,26 @@ EOF</code></pre>
           </div>
         </div>
 
-        <!-- 4.1.3 Claude Desktop -->
+        <!-- 5.1.4 Orca -->
+        <div class="bg-surface-900 border border-slate-800 rounded-xl p-5 space-y-4 hover:border-slate-700 transition">
+          <div class="flex items-start justify-between">
+            <div>
+              <h4 class="text-base font-semibold text-white flex items-center gap-2"><i data-lucide="workflow" class="w-4 h-4 text-brand-500"></i><span data-lang-en="5.1.4. Orca — Multi-Agent Worktree Orchestrator" data-lang-vi="5.1.4. Orca — Điều Phối Multi-Agent trên Worktree">5.1.4. Orca — Điều Phối Multi-Agent trên Worktree</span></h4>
+              <p class="text-xs text-slate-400 mt-1" data-lang-en="Run Codex, Claude Code, OpenCode, or other CLI agents side-by-side in isolated Git worktrees, compare results, and review diffs from one desktop workspace." data-lang-vi="Chạy Codex, Claude Code, OpenCode hoặc CLI agent khác song song trong Git worktree độc lập, so sánh kết quả và review diff trên cùng một desktop workspace.">Chạy Codex, Claude Code, OpenCode hoặc CLI agent khác song song trong Git worktree độc lập, so sánh kết quả và review diff trên cùng một desktop workspace.</p>
+            </div>
+            <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" onchange="toggleStep(this)" class="w-4 h-4 rounded bg-surface-800 border-slate-700 text-brand-500 focus:ring-brand-500"><span class="text-xs text-slate-400 select-none" data-lang-en="Done" data-lang-vi="Xong">Xong</span></label>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 text-xs"><a href="https://github.com/stablyai/orca" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-950 hover:bg-surface-800 border border-slate-800 text-slate-300 hover:text-white transition"><i data-lucide="external-link" class="w-3 h-3 text-brand-500"></i><span>Orca Official</span></a></div>
+          <div class="relative bg-surface-950 rounded-lg p-4 font-mono text-xs text-slate-200 border border-slate-800"><button onclick="copyCode(this)" class="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-800 hover:bg-slate-700 text-slate-300 text-xs border border-slate-700 transition"><i data-lucide="copy" class="w-3.5 h-3.5"></i><span class="copy-label" data-lang-en="Copy" data-lang-vi="Sao chép">Sao chép</span></button><pre class="overflow-x-auto pr-20"><code>brew install --cask stablyai/orca/orca</code></pre></div>
+        </div>
+
+        <!-- 5.1.5 Claude Desktop -->
         <div class="bg-surface-900 border border-slate-800 rounded-xl p-5 space-y-4 hover:border-slate-700 transition">
           <div class="flex items-start justify-between">
             <div>
               <h4 class="text-base font-semibold text-white flex items-center gap-2">
                 <i data-lucide="brain" class="w-4 h-4 text-accent-purple"></i>
-                <span data-lang-en="4.1.3. Claude Desktop for macOS (MCP Core Hub)" data-lang-vi="4.1.3. Claude Desktop for macOS (Trung tâm Kết nối MCP)">4.1.3. Claude Desktop for macOS (Trung tâm Kết nối MCP)</span>
+                <span data-lang-en="5.1.5. Claude Desktop for macOS (MCP Core Hub)" data-lang-vi="5.1.5. Claude Desktop for macOS (Trung tâm Kết nối MCP)">5.1.5. Claude Desktop for macOS (Trung tâm Kết nối MCP)</span>
               </h4>
               <p class="text-xs text-slate-400 mt-1" data-lang-en="Anthropic's official macOS app with Extended Thinking reasoning, Artifacts runner, and deepest Model Context Protocol (MCP) tool integration." data-lang-vi="Ứng dụng chính thức của Anthropic với tư duy suy luận Extended Thinking, bộ chạy Artifacts trực quan và hỗ trợ MCP sâu nhất.">
                 Ứng dụng chính thức của Anthropic với tư duy suy luận Extended Thinking, bộ chạy Artifacts trực quan và hỗ trợ MCP sâu nhất.
@@ -1449,6 +1485,7 @@ brew install --cask claude</code></pre>
             <h5 class="text-xs font-bold uppercase tracking-wider text-slate-300" data-lang-en="Developer MCP Server Config Template (`claude_desktop_config.json`):" data-lang-vi="Cấu hình Mẫu MCP Server cho Lập trình viên (`claude_desktop_config.json`):">
               Cấu hình Mẫu MCP Server cho Lập trình viên (`claude_desktop_config.json`):
             </h5>
+            <p class="text-xs text-amber-300/90" data-lang-en="Replace the workspace placeholder below before saving; do not grant an MCP filesystem server access to folders you do not intend to expose." data-lang-vi="Thay placeholder workspace bên dưới trước khi lưu; không cấp quyền MCP filesystem cho các thư mục bạn không muốn chia sẻ.">Thay placeholder workspace bên dưới trước khi lưu; không cấp quyền MCP filesystem cho các thư mục bạn không muốn chia sẻ.</p>
             <div class="relative bg-surface-950 rounded-lg p-4 font-mono text-xs text-slate-200 border border-slate-800">
               <button onclick="copyCode(this)" class="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-800 hover:bg-slate-700 text-slate-300 text-xs border border-slate-700 transition">
                 <i data-lucide="copy" class="w-3.5 h-3.5"></i>
@@ -1463,7 +1500,7 @@ cat << 'EOF' > "$HOME/Library/Application Support/Claude/claude_desktop_config.j
       "args": [
         "-y",
         "@modelcontextprotocol/server-filesystem",
-        "/Users/hoanghoa/Documents/git"
+        "/ABSOLUTE/PATH/TO/YOUR/WORKSPACE"
       ]
     },
     "fetch": {
@@ -1477,13 +1514,13 @@ EOF</code></pre>
           </div>
         </div>
 
-        <!-- 4.1.4 ChatGPT for macOS -->
+        <!-- 5.1.6 ChatGPT for macOS -->
         <div class="bg-surface-900 border border-slate-800 rounded-xl p-5 space-y-4 hover:border-slate-700 transition">
           <div class="flex items-start justify-between">
             <div>
               <h4 class="text-base font-semibold text-white flex items-center gap-2">
                 <i data-lucide="message-square-code" class="w-4 h-4 text-brand-500"></i>
-                <span data-lang-en="4.1.4. ChatGPT for macOS (Global Launcher & 'Work with Apps')" data-lang-vi="4.1.4. ChatGPT for macOS (Phím tắt Toàn hệ thống & 'Work with Apps')">4.1.4. ChatGPT for macOS (Phím tắt Toàn hệ thống & 'Work with Apps')</span>
+                <span data-lang-en="5.1.6. ChatGPT for macOS (Global Launcher & 'Work with Apps')" data-lang-vi="5.1.6. ChatGPT for macOS (Phím tắt Toàn hệ thống & 'Work with Apps')">5.1.6. ChatGPT for macOS (Phím tắt Toàn hệ thống & 'Work with Apps')</span>
               </h4>
               <p class="text-xs text-slate-400 mt-1" data-lang-en="Global launcher bar with `Option + Space`, and 'Work with Apps' to automatically attach context from active files in Cursor, VS Code, or Terminal." data-lang-vi="Gọi thanh chat nổi bằng phím tắt `Option + Space`, tính năng 'Work with Apps' tự động đọc ngữ cảnh file đang mở trong Cursor/Terminal.">
                 Gọi thanh chat nổi bằng phím tắt `Option + Space`, tính năng 'Work with Apps' tự động đọc ngữ cảnh file đang mở trong Cursor/Terminal.
@@ -1535,13 +1572,13 @@ brew install --cask chatgpt</code></pre>
           </div>
         </div>
 
-        <!-- 4.2.1 Claude Code -->
+        <!-- 5.2.1 Claude Code -->
         <div class="bg-surface-900 border border-slate-800 rounded-xl p-5 space-y-4 hover:border-slate-700 transition">
           <div class="flex items-start justify-between">
             <div>
               <h4 class="text-base font-semibold text-white flex items-center gap-2">
                 <i data-lucide="bot" class="w-4 h-4 text-accent-cyan"></i>
-                <span data-lang-en="4.2.1. `claude-code` — Official Autonomous CLI Agent by Anthropic" data-lang-vi="4.2.1. `claude-code` — Autonomous CLI Agent Chính thức của Anthropic">4.2.1. `claude-code` — Autonomous CLI Agent Chính thức của Anthropic</span>
+                <span data-lang-en="5.2.1. `claude-code` — Official Autonomous CLI Agent by Anthropic" data-lang-vi="5.2.1. `claude-code` — Autonomous CLI Agent Chính thức của Anthropic">5.2.1. `claude-code` — Autonomous CLI Agent Chính thức của Anthropic</span>
               </h4>
               <p class="text-xs text-slate-400 mt-1" data-lang-en="Terminal agent with agentic loop: reads codebase, writes code, executes tests (`npm test`, `pytest`), auto-fixes errors, and creates GitHub PRs." data-lang-vi="Agent dòng lệnh với vòng lặp tự chủ: đọc codebase, viết code, chạy test (`npm test`, `pytest`), tự động fix lỗi và mở GitHub PR.">
                 Agent dòng lệnh với vòng lặp tự chủ: đọc codebase, viết code, chạy test (`npm test`, `pytest`), tự động fix lỗi và mở GitHub PR.
@@ -1615,13 +1652,13 @@ claude</code></pre>
           </div>
         </div>
 
-        <!-- 4.2.2 Aider -->
+        <!-- 5.2.2 Aider -->
         <div class="bg-surface-900 border border-slate-800 rounded-xl p-5 space-y-4 hover:border-slate-700 transition">
           <div class="flex items-start justify-between">
             <div>
               <h4 class="text-base font-semibold text-white flex items-center gap-2">
                 <i data-lucide="git-commit" class="w-4 h-4 text-brand-500"></i>
-                <span data-lang-en="4.2.2. `aider` — AI Pair-Programming CLI with Auto Git Commits" data-lang-vi="4.2.2. `aider` — AI Pair-Programming CLI Tự động Git Commit">4.2.2. `aider` — AI Pair-Programming CLI Tự động Git Commit</span>
+                <span data-lang-en="5.2.2. `aider` — AI Pair-Programming CLI with Auto Git Commits" data-lang-vi="5.2.2. `aider` — AI Pair-Programming CLI Tự động Git Commit">5.2.2. `aider` — AI Pair-Programming CLI Tự động Git Commit</span>
               </h4>
               <p class="text-xs text-slate-400 mt-1" data-lang-en="Terminal AI pair programmer that automatically creates sensible semantic Git commits and supports instant 1-second `/undo` rollback." data-lang-vi="Công cụ AI pair-programming trong terminal tự động tạo commit Git chuẩn mực sau mỗi lần sửa code và hỗ trợ lệnh `/undo` hoàn tác trong 1 giây.">
                 Công cụ AI pair-programming trong terminal tự động tạo commit Git chuẩn mực sau mỗi lần sửa code và hỗ trợ lệnh `/undo` hoàn tác trong 1 giây.
@@ -1664,13 +1701,13 @@ aider --model deepseek/deepseek-chat</code></pre>
           </div>
         </div>
 
-        <!-- 4.2.3 Ollama -->
+        <!-- 5.2.3 Ollama -->
         <div class="bg-surface-900 border border-slate-800 rounded-xl p-5 space-y-4 hover:border-slate-700 transition">
           <div class="flex items-start justify-between">
             <div>
               <h4 class="text-base font-semibold text-white flex items-center gap-2">
                 <i data-lucide="cpu" class="w-4 h-4 text-accent-purple"></i>
-                <span data-lang-en="4.2.3. `ollama` — Run Local LLMs at Apple Silicon Speed" data-lang-vi="4.2.3. `ollama` — Chạy LLM Cục bộ Siêu tốc trên Chip Apple Silicon">4.2.3. `ollama` — Chạy LLM Cục bộ Siêu tốc trên Chip Apple Silicon</span>
+                <span data-lang-en="5.2.3. `ollama` — Run Local LLMs at Apple Silicon Speed" data-lang-vi="5.2.3. `ollama` — Chạy LLM Cục bộ Siêu tốc trên Chip Apple Silicon">5.2.3. `ollama` — Chạy LLM Cục bộ Siêu tốc trên Chip Apple Silicon</span>
               </h4>
               <p class="text-xs text-slate-400 mt-1" data-lang-en="Leverage Apple Silicon Unified Memory for 100% private, zero-cost, offline AI inference. Exposes local OpenAI API at `http://localhost:11434/v1`." data-lang-vi="Tận dụng băng thông Unified Memory của chip Apple Silicon để chạy AI 100% offline, miễn phí, bảo mật tuyệt đối. Cung cấp API tại `http://localhost:11434/v1`.">
                 Tận dụng băng thông Unified Memory của chip Apple Silicon để chạy AI 100% offline, miễn phí, bảo mật tuyệt đối. Cung cấp API tại `http://localhost:11434/v1`.
@@ -1706,13 +1743,13 @@ ollama run deepseek-r1:8b</code></pre>
           </div>
         </div>
 
-        <!-- 4.2.4 LM Studio -->
+        <!-- 5.2.4 LM Studio -->
         <div class="bg-surface-900 border border-slate-800 rounded-xl p-5 space-y-4 hover:border-slate-700 transition">
           <div class="flex items-start justify-between">
             <div>
               <h4 class="text-base font-semibold text-white flex items-center gap-2">
                 <i data-lucide="sparkles" class="w-4 h-4 text-accent-amber"></i>
-                <span data-lang-en="4.2.4. `lm-studio` — GUI Model Explorer & Local API Server" data-lang-vi="4.2.4. `lm-studio` — Giao diện Khám phá Model HuggingFace & Local API Server">4.2.4. `lm-studio` — Giao diện Khám phá Model HuggingFace & Local API Server</span>
+                <span data-lang-en="5.2.4. `lm-studio` — GUI Model Explorer & Local API Server" data-lang-vi="5.2.4. `lm-studio` — Giao diện Khám phá Model HuggingFace & Local API Server">5.2.4. `lm-studio` — Giao diện Khám phá Model HuggingFace & Local API Server</span>
               </h4>
               <p class="text-xs text-slate-400 mt-1" data-lang-en="Visual GUI to discover, download Hugging Face GGUF models, auto-allocate GPU Metal layers, and start local OpenAI-compatible server in 1 click." data-lang-vi="Giao diện đồ hoạ trực quan để tải model GGUF từ Hugging Face, tự động tối ưu GPU Metal và bật Local API Server chỉ với 1 click.">
                 Giao diện đồ hoạ trực quan để tải model GGUF từ Hugging Face, tự động tối ưu GPU Metal và bật Local API Server chỉ với 1 click.
@@ -1762,13 +1799,13 @@ brew install --cask lm-studio</code></pre>
           </span>
         </div>
 
-        <!-- 4.3.1 omniroute Core & Configuration -->
+        <!-- 5.3.1 omniroute Core & Configuration -->
         <div class="bg-surface-900 border border-slate-800 rounded-xl p-5 space-y-5 hover:border-slate-700 transition">
           <div class="flex items-start justify-between">
             <div>
               <h4 class="text-base font-semibold text-white flex items-center gap-2">
                 <i data-lucide="route" class="w-4 h-4 text-accent-cyan"></i>
-                <span data-lang-en="4.3.1. `omniroute` — Unified AI Model Gateway & Intelligent Failover" data-lang-vi="4.3.1. `omniroute` — Cổng AI Gateway & Router Đa Model Thông Minh">4.3.1. `omniroute` — Cổng AI Gateway & Router Đa Model Thông Minh</span>
+                <span data-lang-en="5.3.1. `omniroute` — Unified AI Model Gateway & Intelligent Failover" data-lang-vi="5.3.1. `omniroute` — Cổng AI Gateway & Router Đa Model Thông Minh">5.3.1. `omniroute` — Cổng AI Gateway & Router Đa Model Thông Minh</span>
               </h4>
               <p class="text-xs text-slate-400 mt-1" data-lang-en="Acts as a local reverse proxy (`http://localhost:8000/v1`). Automatically reroutes to backup models (DeepSeek, Gemini) if Claude 3.7 hits rate limits or network downtime." data-lang-vi="Đóng vai trò là Reverse Proxy chuẩn OpenAI (`http://localhost:8000/v1`). Tự động chuyển tuyến sang model dự phòng (DeepSeek, Gemini) khi Claude 3.7 bị nghẽn mạng hoặc quá tải.">
                 Đóng vai trò là Reverse Proxy chuẩn OpenAI (`http://localhost:8000/v1`). Tự động chuyển tuyến sang model dự phòng (DeepSeek, Gemini) khi Claude 3.7 bị nghẽn mạng hoặc quá tải.
@@ -1895,13 +1932,13 @@ launchctl load ~/Library/LaunchAgents/com.vibe.omniroute.plist</code></pre>
           </div>
         </div>
 
-        <!-- 4.3.2 Exact Client Wiring Recipes -->
+        <!-- 5.3.2 Exact Client Wiring Recipes -->
         <div class="bg-surface-900 border border-slate-800 rounded-xl p-5 space-y-6 hover:border-slate-700 transition">
           <div class="flex items-start justify-between">
             <div>
               <h4 class="text-base font-semibold text-white flex items-center gap-2">
                 <i data-lucide="plug-zap" class="w-4 h-4 text-accent-amber"></i>
-                <span data-lang-en="4.3.2. Complete Client Wiring Recipes (Base URL, Tokens & Model Selection)" data-lang-vi="4.3.2. Cẩm Nang Đấu Nối Từng Ứng Dụng vào OmniRoute Gateway">4.3.2. Cẩm Nang Đấu Nối Từng Ứng Dụng vào OmniRoute Gateway</span>
+                <span data-lang-en="5.3.2. Complete Client Wiring Recipes (Base URL, Tokens & Model Selection)" data-lang-vi="5.3.2. Cẩm Nang Đấu Nối Từng Ứng Dụng vào OmniRoute Gateway">5.3.2. Cẩm Nang Đấu Nối Từng Ứng Dụng vào OmniRoute Gateway</span>
               </h4>
               <p class="text-xs text-slate-400 mt-1" data-lang-en="Exact setup recipes for Claude Code, OMP Harness, Codex SDK, Cursor, Zed, and VS Code/Copilot to call models via `http://localhost:8000/v1`." data-lang-vi="Hướng dẫn chi tiết từng bước cấu hình Claude Code, OMP Harness, Codex SDK, Cursor, Zed, và VS Code/Copilot kết nối qua `http://localhost:8000/v1`.">
                 Hướng dẫn chi tiết từng bước cấu hình Claude Code, OMP Harness, Codex SDK, Cursor, Zed, và VS Code/Copilot kết nối qua `http://localhost:8000/v1`.
@@ -2050,13 +2087,13 @@ res = client.chat.completions.create(
           </div>
         </div>
 
-        <!-- 4.3.3 omp Deep Architecture -->
+        <!-- 5.3.3 omp Deep Architecture -->
         <div class="bg-surface-900 border border-slate-800 rounded-xl p-5 space-y-4 hover:border-slate-700 transition">
           <div class="flex items-start justify-between">
             <div>
               <h4 class="text-base font-semibold text-white flex items-center gap-2">
                 <i data-lucide="layers" class="w-4 h-4 text-brand-500"></i>
-                <span data-lang-en="4.3.3. `omp` (Oh My Pi) — Autonomous Agentic Coding Harness Architecture" data-lang-vi="4.3.3. `omp` (Oh My Pi) — Kiến Trúc Khung Điều Phối Agentic Harness">4.3.3. `omp` (Oh My Pi) — Kiến Trúc Khung Điều Phối Agentic Harness</span>
+                <span data-lang-en="5.3.3. `omp` (Oh My Pi) — Autonomous Agentic Coding Harness Architecture" data-lang-vi="5.3.3. `omp` (Oh My Pi) — Kiến Trúc Khung Điều Phối Agentic Harness">5.3.3. `omp` (Oh My Pi) — Kiến Trúc Khung Điều Phối Agentic Harness</span>
               </h4>
               <p class="text-xs text-slate-400 mt-1" data-lang-en="Persistent Python/Bun VM execution kernel, specialized subagent matrix (`scout`, `reviewer`, `security-reviewer`), and AST devices (`xd://ast_edit`, `xd://lsp`)." data-lang-vi="Persistent kernel duy trì bộ nhớ liên tục giữa các turn, ma trận subagent chuyên trách và thiết bị công cụ AST chuẩn xác.">
                 Persistent kernel duy trì bộ nhớ liên tục giữa các turn, ma trận subagent chuyên trách và thiết bị công cụ AST chuẩn xác.
@@ -2109,13 +2146,13 @@ res = client.chat.completions.create(
           </div>
         </div>
 
-        <!-- 4.3.4 herdr Multi-Worktree Orchestrator -->
+        <!-- 5.3.4 herdr Multi-Worktree Orchestrator -->
         <div class="bg-surface-900 border border-slate-800 rounded-xl p-5 space-y-4 hover:border-slate-700 transition">
           <div class="flex items-start justify-between">
             <div>
               <h4 class="text-base font-semibold text-white flex items-center gap-2">
                 <i data-lucide="git-fork" class="w-4 h-4 text-accent-purple"></i>
-                <span data-lang-en="4.3.4. `herdr` — Multi-Agent Worktree Orchestration" data-lang-vi="4.3.4. `herdr` — Điều Phối Nhiều Agent trên Multi-Worktree Độc Lập">4.3.4. `herdr` — Điều Phối Nhiều Agent trên Multi-Worktree Độc Lập</span>
+                <span data-lang-en="5.3.4. `herdr` — Multi-Agent Worktree Orchestration" data-lang-vi="5.3.4. `herdr` — Điều Phối Nhiều Agent trên Multi-Worktree Độc Lập">5.3.4. `herdr` — Điều Phối Nhiều Agent trên Multi-Worktree Độc Lập</span>
               </h4>
               <p class="text-xs text-slate-400 mt-1" data-lang-en="Isolate parallel AI agents into separate Git Worktrees (`/tmp/herdr-worktrees/...`). Eliminates file merge conflicts and workspace contamination." data-lang-vi="Cách ly các Agent chạy song song vào từng Git Worktree độc lập trong thư mục tạm. Triệt tiêu hoàn toàn xung đột ghi đè file.">
                 Cách ly các Agent chạy song song vào từng Git Worktree độc lập trong thư mục tạm. Triệt tiêu hoàn toàn xung đột ghi đè file.
@@ -2144,13 +2181,13 @@ herdr sync --merge</code></pre>
           </div>
         </div>
 
-        <!-- 4.3.5 Fast Aliases & Shortcuts for .zshrc -->
+        <!-- 5.3.5 Fast Aliases & Shortcuts for .zshrc -->
         <div class="bg-surface-900 border border-slate-800 rounded-xl p-5 space-y-4 hover:border-slate-700 transition">
           <div class="flex items-start justify-between">
             <div>
               <h4 class="text-base font-semibold text-white flex items-center gap-2">
                 <i data-lucide="zap" class="w-4 h-4 text-accent-amber"></i>
-                <span data-lang-en="4.3.5. Ultra-Fast Vibe Coding Aliases & Shortcuts (`.zshrc`)" data-lang-vi="4.3.5. Bộ Alias & Phím Tắt Khởi Động Nhanh (`.zshrc`)">4.3.5. Bộ Alias & Phím Tắt Khởi Động Nhanh (`.zshrc`)</span>
+                <span data-lang-en="5.3.5. Ultra-Fast Vibe Coding Aliases & Shortcuts (`.zshrc`)" data-lang-vi="5.3.5. Bộ Alias & Phím Tắt Khởi Động Nhanh (`.zshrc`)">5.3.5. Bộ Alias & Phím Tắt Khởi Động Nhanh (`.zshrc`)</span>
               </h4>
               <p class="text-xs text-slate-400 mt-1" data-lang-en="Control OmniRoute, Claude Code, Aider, OMP, and Herdr in 2-3 keystrokes." data-lang-vi="Điều khiển toàn bộ Gateway, Claude Code, Aider, OMP và Herdr chỉ với 2-3 phím gõ tắt.">
                 Điều khiển toàn bộ Gateway, Claude Code, Aider, OMP và Herdr chỉ với 2-3 phím gõ tắt.
@@ -2192,13 +2229,13 @@ source ~/.zshrc</code></pre>
           </div>
         </div>
 
-        <!-- 4.3.6 Production-Ready .cursorrules Template -->
+        <!-- 5.3.6 Production-Ready .cursorrules Template -->
         <div class="bg-surface-900 border border-slate-800 rounded-xl p-5 space-y-4 hover:border-slate-700 transition">
           <div class="flex items-start justify-between">
             <div>
               <h4 class="text-base font-semibold text-white flex items-center gap-2">
                 <i data-lucide="file-check" class="w-4 h-4 text-accent-cyan"></i>
-                <span data-lang-en="4.3.6. Production-Ready `.cursorrules` / `RULE.md` Template" data-lang-vi="4.3.6. File Cấu Hình Chuẩn Mực `.cursorrules` / `RULE.md`">4.3.6. File Cấu Hình Chuẩn Mực `.cursorrules` / `RULE.md`</span>
+                <span data-lang-en="5.3.6. Production-Ready `.cursorrules` / `RULE.md` Template" data-lang-vi="5.3.6. File Cấu Hình Chuẩn Mực `.cursorrules` / `RULE.md`">5.3.6. File Cấu Hình Chuẩn Mực `.cursorrules` / `RULE.md`</span>
               </h4>
               <p class="text-xs text-slate-400 mt-1" data-lang-en="Place in project root to enforce strict types, surgical diffs, conventional commits, and verification deliverables." data-lang-vi="Đặt ở thư mục gốc dự án để ép AI tuân thủ chuẩn TypeScript strict, không sinh code thừa và viết commit chuẩn mực.">
                 Đặt ở thư mục gốc dự án để ép AI tuân thủ chuẩn TypeScript strict, không sinh code thừa và viết commit chuẩn mực.
@@ -2240,7 +2277,7 @@ cat << 'EOF' > .cursorrules
 EOF</code></pre>
           </div>
         </div>
-        <!-- 4.3.7 Pro Vibe Coding Playbook & omp Mastery Guide -->
+        <!-- 5.3.7 Pro Vibe Coding Playbook & omp Mastery Guide -->
         <div class="bg-gradient-to-br from-surface-900 via-surface-900 to-accent-purple/10 border border-accent-purple/40 rounded-xl p-4 sm:p-6 space-y-6 hover:border-accent-purple transition shadow-xl">
           <div class="flex items-start justify-between">
             <div class="space-y-1">
@@ -2250,7 +2287,7 @@ EOF</code></pre>
               </div>
               <h4 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
                 <i data-lucide="book-open" class="w-5 h-5 text-brand-500"></i>
-                <span data-lang-en="4.3.7. The Pro Vibe Coding Playbook & `omp` Harness Mastery" data-lang-vi="4.3.7. Cẩm Nang Vibe Coding Chuyên Nghiệp & Làm Chủ `omp` Harness">4.3.7. Cẩm Nang Vibe Coding Chuyên Nghiệp & Làm Chủ `omp` Harness</span>
+                <span data-lang-en="5.3.7. The Pro Vibe Coding Playbook & `omp` Harness Mastery" data-lang-vi="5.3.7. Cẩm Nang Vibe Coding Chuyên Nghiệp & Làm Chủ `omp` Harness">5.3.7. Cẩm Nang Vibe Coding Chuyên Nghiệp & Làm Chủ `omp` Harness</span>
               </h4>
               <p class="text-xs text-slate-400 leading-relaxed" data-lang-en="From prompt-and-pray beginner to AI Tech Lead: Harness the full power of persistent kernels, subagent delegation, surgical diffs, and multi-model routing." data-lang-vi="Từ người mới gõ prompt mò mẫm trở thành AI Tech Lead: Làm chủ sức mạnh của persistent kernel, phân quyền subagent, sửa code chính xác và định tuyến đa model.">
                 Từ người mới gõ prompt mò mẫm trở thành AI Tech Lead: Làm chủ sức mạnh của persistent kernel, phân quyền subagent, sửa code chính xác và định tuyến đa model.
@@ -2409,7 +2446,7 @@ Nghiệm thu: Chạy `npm test tests/rate-limit.test.ts`, báo cáo kết quả 
 
         </div>
 
-        <!-- 4.3.8 Deep Multi-Agent Worktrees, Code Review & E2E Testing Architecture -->
+        <!-- 5.3.8 Deep Multi-Agent Worktrees, Code Review & E2E Testing Architecture -->
         <div class="bg-gradient-to-br from-surface-900 via-surface-900 to-accent-cyan/10 border border-accent-cyan/40 rounded-xl p-4 sm:p-6 space-y-5 hover:border-accent-cyan transition shadow-xl">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-4">
             <div class="space-y-1">
@@ -2419,7 +2456,7 @@ Nghiệm thu: Chạy `npm test tests/rate-limit.test.ts`, báo cáo kết quả 
               </div>
               <h4 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
                 <i data-lucide="cpu" class="w-5 h-5 text-accent-cyan"></i>
-                <span data-lang-en="4.3.8. Multi-Agent Worktrees, Code Review Pipeline & E2E Testing" data-lang-vi="4.3.8. Quy Trình Multi-Agent Worktrees, Code Review & E2E Testing">4.3.8. Quy Trình Multi-Agent Worktrees, Code Review & E2E Testing</span>
+                <span data-lang-en="5.3.8. Multi-Agent Worktrees, Code Review Pipeline & E2E Testing" data-lang-vi="5.3.8. Quy Trình Multi-Agent Worktrees, Code Review & E2E Testing">5.3.8. Quy Trình Multi-Agent Worktrees, Code Review & E2E Testing</span>
               </h4>
               <p class="text-xs text-slate-400 leading-relaxed" data-lang-en="Comprehensive architectural blueprint: Spec & Plan writing, Rules/Skills/Hooks, parallel Git Worktrees, automated code review gates, and real-world API/UI headless browser testing." data-lang-vi="Cẩm nang kiến trúc toàn diện: Thiết kế Spec & Plan, Rules/Skills/Hooks, phân luồng Git Worktree cho đa Agent, quy trình Code Review và tự động hóa kiểm thử API/UI Web thực chiến.">
                 Cẩm nang kiến trúc toàn diện: Thiết kế Spec & Plan, Rules/Skills/Hooks, phân luồng Git Worktree cho đa Agent, quy trình Code Review và tự động hóa kiểm thử API/UI Web thực chiến.
@@ -3055,13 +3092,13 @@ brew install --cask arc</code></pre>
           </span>
         </div>
 
-        <!-- 7.1 Brewfile 1-Click Bundle -->
+        <!-- 8.1 Brewfile 1-Click Bundle -->
         <div class="bg-surface-900 border border-slate-800 rounded-xl p-5 space-y-4 hover:border-slate-700 transition">
           <div class="flex items-start justify-between">
             <div>
               <h4 class="text-base font-semibold text-white flex items-center gap-2">
                 <i data-lucide="package" class="w-4 h-4 text-accent-amber"></i>
-                <span data-lang-en="7.1. 1-Click `Brewfile` Bundle Installation" data-lang-vi="7.1. Cài Đặt Trọn Gói 1-Click Bằng `Brewfile`">7.1. Cài Đặt Trọn Gói 1-Click Bằng `Brewfile`</span>
+                <span data-lang-en="8.1. 1-Click `Brewfile` Bundle Installation" data-lang-vi="8.1. Cài Đặt Trọn Gói 1-Click Bằng `Brewfile`">8.1. Cài Đặt Trọn Gói 1-Click Bằng `Brewfile`</span>
               </h4>
               <p class="text-xs text-slate-400 mt-1" data-lang-en="Instead of typing commands one-by-one, install all CLI tools, runtimes, and desktop apps in one single command." data-lang-vi="Thay vì phải gõ từng lệnh, cài đặt toàn bộ CLI tools, runtimes, AI agents và ứng dụng desktop chỉ với 1 dòng lệnh duy nhất.">
                 Thay vì phải gõ từng lệnh, cài đặt toàn bộ CLI tools, runtimes, AI agents và ứng dụng desktop chỉ với 1 dòng lệnh duy nhất.
@@ -3091,16 +3128,68 @@ brew bundle --file=Brewfile</code></pre>
           </div>
         </div>
 
-        <!-- 7.2 Healthcheck Verification Script -->
+        <!-- 8.2 Build Your Own Desktop Stack -->
+        <div class="bg-surface-900 border border-accent-cyan/30 rounded-xl p-5 space-y-4 shadow-lg shadow-accent-cyan/5">
+          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+            <div>
+              <h4 class="text-base font-semibold text-white flex items-center gap-2">
+                <i data-lucide="sliders-horizontal" class="w-4 h-4 text-accent-cyan"></i>
+                <span data-lang-en="8.2. Build Your Own Vibe Coding Stack" data-lang-vi="8.2. Tự Chọn Bộ Công Cụ Vibe Coding">8.2. Tự Chọn Bộ Công Cụ Vibe Coding</span>
+              </h4>
+              <p class="text-xs text-slate-400 mt-1" data-lang-en="Choose only the desktop apps you want. Cursor is a VS Code-based AI editor; install official VS Code when you prefer GitHub Copilot, Continue, or its extension ecosystem." data-lang-vi="Chỉ chọn các ứng dụng desktop bạn cần. Cursor là editor AI dựa trên VS Code; hãy cài VS Code chính thức nếu bạn dùng GitHub Copilot, Continue hoặc hệ sinh thái extension của nó.">
+                Chỉ chọn các ứng dụng desktop bạn cần. Cursor là editor AI dựa trên VS Code; hãy cài VS Code chính thức nếu bạn dùng GitHub Copilot, Continue hoặc hệ sinh thái extension của nó.
+              </p>
+            </div>
+            <span id="selected-setup-count" class="shrink-0 text-[11px] font-mono px-2.5 py-1 rounded-full bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20">1 app selected</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div class="p-3 rounded-lg bg-surface-950 border border-slate-800 space-y-2">
+              <p class="font-semibold text-slate-300" data-lang-en="Code editors" data-lang-vi="Code editor">Code editor</p>
+              <label class="flex items-center gap-2 cursor-pointer text-accent-rose"><input type="checkbox" data-setup-package="cursor" checked onchange="updateSetupCommand()" class="w-4 h-4 rounded bg-surface-800 border-slate-700 text-accent-rose focus:ring-accent-rose">Cursor <span class="text-slate-500">AI-first</span></label>
+              <label class="flex items-center gap-2 cursor-pointer text-accent-cyan"><input type="checkbox" data-setup-package="visual-studio-code" onchange="updateSetupCommand()" class="w-4 h-4 rounded bg-surface-800 border-slate-700 text-accent-cyan focus:ring-accent-cyan">VS Code <span class="text-slate-500">Copilot / Continue</span></label>
+              <label class="flex items-center gap-2 cursor-pointer text-accent-purple"><input type="checkbox" data-setup-package="zed" onchange="updateSetupCommand()" class="w-4 h-4 rounded bg-surface-800 border-slate-700 text-accent-purple focus:ring-accent-purple">Zed <span class="text-slate-500">native performance</span></label>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-950 border border-slate-800 space-y-2">
+              <p class="font-semibold text-slate-300" data-lang-en="AI companions & local models" data-lang-vi="Trợ lý AI & local model">AI companions & local models</p>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" data-setup-package="claude" onchange="updateSetupCommand()" class="w-4 h-4 rounded bg-surface-800 border-slate-700 text-brand-500 focus:ring-brand-500">Claude Desktop</label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" data-setup-package="chatgpt" onchange="updateSetupCommand()" class="w-4 h-4 rounded bg-surface-800 border-slate-700 text-brand-500 focus:ring-brand-500">ChatGPT</label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" data-setup-package="ollama" onchange="updateSetupCommand()" class="w-4 h-4 rounded bg-surface-800 border-slate-700 text-brand-500 focus:ring-brand-500">Ollama</label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" data-setup-package="lm-studio" onchange="updateSetupCommand()" class="w-4 h-4 rounded bg-surface-800 border-slate-700 text-brand-500 focus:ring-brand-500">LM Studio</label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" data-setup-package="stablyai/orca/orca" onchange="updateSetupCommand()" class="w-4 h-4 rounded bg-surface-800 border-slate-700 text-brand-500 focus:ring-brand-500">Orca <span class="text-slate-500">multi-agent</span></label>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-950 border border-slate-800 space-y-2">
+              <p class="font-semibold text-slate-300" data-lang-en="Terminal & containers" data-lang-vi="Terminal & container">Terminal & container</p>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" data-setup-package="ghostty" onchange="updateSetupCommand()" class="w-4 h-4 rounded bg-surface-800 border-slate-700 text-brand-500 focus:ring-brand-500">Ghostty</label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" data-setup-package="orbstack" onchange="updateSetupCommand()" class="w-4 h-4 rounded bg-surface-800 border-slate-700 text-brand-500 focus:ring-brand-500">OrbStack</label>
+            </div>
+            <div class="p-3 rounded-lg bg-surface-950 border border-slate-800 space-y-2">
+              <p class="font-semibold text-slate-300" data-lang-en="Productivity" data-lang-vi="Năng suất">Productivity</p>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" data-setup-package="raycast" onchange="updateSetupCommand()" class="w-4 h-4 rounded bg-surface-800 border-slate-700 text-brand-500 focus:ring-brand-500">Raycast</label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" data-setup-package="shottr" onchange="updateSetupCommand()" class="w-4 h-4 rounded bg-surface-800 border-slate-700 text-brand-500 focus:ring-brand-500">Shottr</label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" data-setup-package="jordanbaird-ice" onchange="updateSetupCommand()" class="w-4 h-4 rounded bg-surface-800 border-slate-700 text-brand-500 focus:ring-brand-500">Ice</label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" data-setup-package="arc" onchange="updateSetupCommand()" class="w-4 h-4 rounded bg-surface-800 border-slate-700 text-brand-500 focus:ring-brand-500">Arc</label>
+            </div>
+          </div>
+
+          <div class="relative bg-surface-950 rounded-lg p-4 font-mono text-xs text-slate-200 border border-slate-800">
+            <button onclick="copyCode(this)" class="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-800 hover:bg-slate-700 text-slate-300 text-xs border border-slate-700 transition">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i><span class="copy-label" data-lang-en="Copy" data-lang-vi="Sao chép">Sao chép</span>
+            </button>
+            <pre class="overflow-x-auto pr-20"><code id="dynamic-setup-cmd">brew install --cask cursor</code></pre>
+          </div>
+        </div>
+
+        <!-- 8.3 Healthcheck Verification Script -->
         <div class="bg-surface-900 border border-slate-800 rounded-xl p-5 space-y-4 hover:border-slate-700 transition">
           <div class="flex items-start justify-between">
             <div>
               <h4 class="text-base font-semibold text-white flex items-center gap-2">
                 <i data-lucide="check-check" class="w-4 h-4 text-brand-500"></i>
-                <span data-lang-en="7.2. Automated Healthcheck Verification Script" data-lang-vi="7.2. Script Kiểm Tra Tự Động Toàn Bộ Môi Trường">7.2. Script Kiểm Tra Tự Động Toàn Bộ Môi Trường</span>
+                <span data-lang-en="8.3. Automated Healthcheck Verification Script" data-lang-vi="8.3. Script Kiểm Tra Tự Động Toàn Bộ Môi Trường">8.3. Script Kiểm Tra Tự Động Toàn Bộ Môi Trường</span>
               </h4>
-              <p class="text-xs text-slate-400 mt-1" data-lang-en="Run our verification script to scan every tool, runtime, AI agent, and SSH key on your Mac to ensure 100% readiness." data-lang-vi="Chạy script kiểm tra để quét toàn bộ công cụ, runtime, AI agent và khoá SSH trên máy bạn để đảm bảo sẵn sàng 100%.">
-                Chạy script kiểm tra để quét toàn bộ công cụ, runtime, AI agent và khoá SSH trên máy bạn để đảm bảo sẵn sàng 100%.
+              <p class="text-xs text-slate-400 mt-1" data-lang-en="Run the healthcheck after installing a profile. Append --minimal, --ai, --apps, or --full to verify only the layer you chose." data-lang-vi="Chạy healthcheck sau khi cài profile. Thêm --minimal, --ai, --apps hoặc --full để chỉ kiểm tra đúng lớp công cụ bạn đã chọn.">
+                Chạy healthcheck sau khi cài profile. Thêm --minimal, --ai, --apps hoặc --full để chỉ kiểm tra đúng lớp công cụ bạn đã chọn.
               </p>
             </div>
             <label class="flex items-center gap-2 cursor-pointer">
@@ -3123,7 +3212,7 @@ brew bundle --file=Brewfile</code></pre>
               <i data-lucide="copy" class="w-3.5 h-3.5"></i>
               <span class="copy-label" data-lang-en="Copy" data-lang-vi="Sao chép">Sao chép</span>
             </button>
-            <pre class="overflow-x-auto pr-20"><code id="verify-cmd-code">bash scripts/verify-setup.vi.sh</code></pre>
+            <pre class="overflow-x-auto pr-20"><code id="verify-cmd-code">bash scripts/verify-setup.vi.sh --full</code></pre>
           </div>
         </div>
       </section>
@@ -3132,8 +3221,9 @@ brew bundle --file=Brewfile</code></pre>
 
       <!-- Footer -->
       <footer class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500 space-y-2">
-        <p data-lang-en="Built for Modern Developers & Vibe Coding • macOS Apple Silicon" data-lang-vi="Dành riêng cho Lập trình viên hiện đại & Vibe Coding • macOS Apple Silicon">
-          Dành riêng cho Lập trình viên hiện đại & Vibe Coding • macOS Apple Silicon
+        <p class="inline-flex items-center justify-center gap-2 text-slate-400">
+          <svg class="w-5 h-3.5 rounded-sm shadow-sm" viewBox="0 0 30 20" role="img" aria-label="Vietnam flag"><rect width="30" height="20" fill="#da251d"/><path d="M15 3.3l1.8 5.4h5.7L18 12l1.8 5.4L15 14.1l-4.8 3.3L12 12 7.5 8.7h5.7z" fill="#ffdf00"/></svg>
+          <span data-lang-en="From Vietnam with Love ❤️" data-lang-vi="Từ Việt Nam với yêu thương ❤️">From Vietnam with Love ❤️</span>
         </p>
         <p>
           <span data-lang-en="Made by" data-lang-vi="Thực hiện bởi">Made by</span>
@@ -3226,15 +3316,16 @@ brew bundle --file=Brewfile</code></pre>
         if (lang === 'vi') {
           verifyScriptLink.href = 'scripts/verify-setup.vi.sh';
           verifyScriptLinkText.textContent = 'scripts/verify-setup.vi.sh';
-          verifyCmdCode.textContent = 'bash scripts/verify-setup.vi.sh';
+          verifyCmdCode.textContent = 'bash scripts/verify-setup.vi.sh --full';
         } else {
           verifyScriptLink.href = 'scripts/verify-setup.en.sh';
           verifyScriptLinkText.textContent = 'scripts/verify-setup.en.sh';
-          verifyCmdCode.textContent = 'bash scripts/verify-setup.en.sh';
+          verifyCmdCode.textContent = 'bash scripts/verify-setup.en.sh --full';
         }
       }
 
       updateCliCommand();
+      updateSetupCommand();
       updateDocumentationPager();
       setModalLanguage(lang);
     }
@@ -3309,6 +3400,26 @@ brew bundle --file=Brewfile</code></pre>
         cb.checked = state;
       });
       updateCliCommand();
+    }
+
+    // Build a focused desktop-app installation command from the user's choices.
+    function updateSetupCommand() {
+      const checkboxes = document.querySelectorAll('input[data-setup-package]');
+      const selected = [...checkboxes]
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.dataset.setupPackage);
+      const command = document.getElementById('dynamic-setup-cmd');
+      const count = document.getElementById('selected-setup-count');
+      if (command) {
+        command.textContent = selected.length
+          ? `brew install --cask ${selected.join(' ')}`
+          : currentLang === 'vi' ? '# Chọn ít nhất một ứng dụng để tạo lệnh' : '# Select at least one app to generate a command';
+      }
+      if (count) {
+        count.textContent = currentLang === 'vi'
+          ? `Đã chọn ${selected.length} ứng dụng`
+          : `${selected.length} app${selected.length === 1 ? '' : 's'} selected`;
+      }
     }
 
     // Copy to Clipboard
@@ -3484,6 +3595,7 @@ brew bundle --file=Brewfile</code></pre>
       initializeModalTranslations();
       setLanguage(currentLang);
       updateCliCommand();
+      updateSetupCommand();
       setupDocumentationNavigation();
       setupBackToTop();
     });
