@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi" class="dark">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,6 +75,7 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+    .doc-page[hidden] { display: none !important; }
   </style>
 </head>
 <body class="bg-surface-950 text-slate-200 font-sans antialiased selection:bg-brand-500 selection:text-white min-h-screen flex flex-col">
@@ -108,10 +109,10 @@
 
         <!-- Language Switcher Button -->
         <div class="inline-flex rounded-lg border border-slate-800 bg-surface-900 p-0.5">
-          <button id="lang-btn-vi" onclick="setLanguage('vi')" class="px-2 sm:px-2.5 py-1 text-[11px] sm:text-xs font-semibold rounded-md transition-all bg-brand-500 text-white shadow-sm">
+          <button id="lang-btn-vi" onclick="setLanguage('vi')" class="px-2 sm:px-2.5 py-1 text-[11px] sm:text-xs font-semibold rounded-md text-slate-400 hover:text-white transition-all">
             🇻🇳 VN
           </button>
-          <button id="lang-btn-en" onclick="setLanguage('en')" class="px-2 sm:px-2.5 py-1 text-[11px] sm:text-xs font-semibold rounded-md text-slate-400 hover:text-white transition-all">
+          <button id="lang-btn-en" onclick="setLanguage('en')" class="px-2 sm:px-2.5 py-1 text-[11px] sm:text-xs font-semibold rounded-md transition-all bg-brand-500 text-white shadow-sm">
             🇺🇸 EN
           </button>
         </div>
@@ -121,88 +122,81 @@
     <!-- Mobile Sticky Quick Navigation Bar (Horizontal Carousel) -->
     <div class="lg:hidden border-t border-slate-800/80 bg-surface-950/95 px-2.5 py-1.5 overflow-x-auto no-scrollbar flex items-center gap-1.5 text-[11px] font-mono">
       <a href="#mindmap" class="px-2 py-1 rounded-md bg-surface-900 border border-brand-500/40 text-brand-500 font-bold shrink-0 flex items-center gap-1">
-        <i data-lucide="git-merge" class="w-3 h-3"></i> <span>Map</span>
+        <span>01.</span> <span>Overview</span>
       </a>
-      <a href="#phase-1" class="px-2 py-1 rounded-md bg-surface-900 border border-slate-800 text-slate-300 hover:text-brand-500 shrink-0">01. OS</a>
-      <a href="#backup-restore" class="px-2 py-1 rounded-md bg-surface-900 border border-accent-amber/40 text-accent-amber shrink-0">★ Export</a>
-      <a href="#phase-2" class="px-2 py-1 rounded-md bg-surface-900 border border-slate-800 text-slate-300 hover:text-accent-cyan shrink-0">02. CLI</a>
-      <a href="#phase-3" class="px-2 py-1 rounded-md bg-surface-900 border border-slate-800 text-slate-300 hover:text-accent-purple shrink-0">03. Runtime</a>
-      <a href="#phase-4" class="px-2 py-1 rounded-md bg-surface-900 border border-accent-rose/50 text-accent-rose font-bold shrink-0">04. AI Stack</a>
-      <a href="#phase-5" class="px-2 py-1 rounded-md bg-surface-900 border border-slate-800 text-slate-300 hover:text-accent-cyan shrink-0">05. Git</a>
-      <a href="#phase-6" class="px-2 py-1 rounded-md bg-surface-900 border border-slate-800 text-slate-300 hover:text-brand-500 shrink-0">06. Apps</a>
-      <a href="#optional-addons" class="px-2 py-1 rounded-md bg-surface-900 border border-accent-amber/50 text-accent-amber font-bold shrink-0">★ Add-ons</a>
-      <a href="#phase-7" class="px-2 py-1 rounded-md bg-surface-900 border border-brand-500/50 text-brand-500 font-bold shrink-0">07. Auto</a>
+      <a href="#phase-1" class="px-2 py-1 rounded-md bg-surface-900 border border-slate-800 text-slate-300 hover:text-brand-500 shrink-0">02. OS</a>
+      <a href="#phase-2" class="px-2 py-1 rounded-md bg-surface-900 border border-slate-800 text-slate-300 hover:text-accent-cyan shrink-0">03. CLI</a>
+      <a href="#phase-3" class="px-2 py-1 rounded-md bg-surface-900 border border-slate-800 text-slate-300 hover:text-accent-purple shrink-0">04. Runtime</a>
+      <a href="#phase-4" class="px-2 py-1 rounded-md bg-surface-900 border border-accent-rose/50 text-accent-rose font-bold shrink-0">05. AI Stack</a>
+      <a href="#phase-5" class="px-2 py-1 rounded-md bg-surface-900 border border-slate-800 text-slate-300 hover:text-accent-cyan shrink-0">06. Git</a>
+      <a href="#phase-6" class="px-2 py-1 rounded-md bg-surface-900 border border-slate-800 text-slate-300 hover:text-brand-500 shrink-0">07. Apps</a>
+      <a href="#phase-7" class="px-2 py-1 rounded-md bg-surface-900 border border-brand-500/50 text-brand-500 font-bold shrink-0">08. Auto</a>
     </div>
   </header>
 
   <!-- Main Layout -->
   <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8 w-full flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
     <!-- Sidebar Navigation -->
-    <aside class="hidden lg:block lg:col-span-3">
-      <div class="sticky top-24 space-y-4">
-        <div class="p-4 rounded-xl bg-surface-900/90 border border-slate-800 backdrop-blur">
+    <aside class="hidden lg:block lg:col-span-3 self-start">
+      <div class="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto pr-2">
+        <div class="p-4 rounded-xl bg-surface-900/90 border border-slate-800 backdrop-blur shadow-xl shadow-surface-950/20">
           <div class="flex items-center justify-between mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
             <span data-lang-en="Setup Roadmap" data-lang-vi="Lộ trình thiết lập">Lộ trình thiết lập</span>
-            <span class="text-brand-500 font-mono">7 Phases</span>
+            <span class="text-brand-500 font-mono">8 Sections</span>
           </div>
-          <nav class="space-y-1 text-sm">
-            <a href="#phase-1" class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-800/80 text-brand-500 font-medium border border-brand-500/20">
+          <nav id="sidebar-doc-nav" class="space-y-1 text-sm">
+            <a href="#mindmap" data-doc-page="mindmap" class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-surface-800 transition">
               <span class="flex items-center gap-2">
-                <span class="w-5 h-5 rounded-md bg-brand-500/20 text-brand-500 flex items-center justify-center text-xs font-mono">1</span>
+                <span class="w-5 h-5 rounded-md bg-slate-700/70 text-slate-300 flex items-center justify-center text-xs font-mono">1</span>
+                <span data-lang-en="Overview" data-lang-vi="Tổng quan">Tổng quan</span>
+              </span>
+              <i data-lucide="layout-dashboard" class="w-4 h-4 text-slate-500"></i>
+            </a>
+            <a href="#phase-1" data-doc-page="phase-1" class="flex items-center justify-between px-3 py-2 rounded-lg text-brand-500 font-medium transition hover:bg-surface-800">
+              <span class="flex items-center gap-2">
+                <span class="w-5 h-5 rounded-md bg-brand-500/20 text-brand-500 flex items-center justify-center text-xs font-mono">2</span>
                 <span data-lang-en="macOS System & UX" data-lang-vi="Hệ thống macOS & UX">Hệ thống macOS & UX</span>
               </span>
               <i data-lucide="check" class="w-4 h-4 text-brand-500"></i>
             </a>
-            <a href="#backup-restore" class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-surface-800 transition">
+            <a href="#phase-2" data-doc-page="phase-2" class="flex items-center justify-between px-3 py-2 rounded-lg text-accent-cyan font-medium transition hover:bg-surface-800">
               <span class="flex items-center gap-2">
-                <span class="w-5 h-5 rounded-md bg-accent-amber/20 text-accent-amber flex items-center justify-center text-xs font-mono">★</span>
-                <span data-lang-en="Backup & Export Settings" data-lang-vi="Sao lưu & Xuất Setting">Sao lưu & Xuất Setting</span>
-              </span>
-            </a>
-            <a href="#phase-2" class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-800/80 text-accent-cyan font-medium border border-accent-cyan/20">
-              <span class="flex items-center gap-2">
-                <span class="w-5 h-5 rounded-md bg-accent-cyan/20 text-accent-cyan flex items-center justify-center text-xs font-mono">2</span>
+                <span class="w-5 h-5 rounded-md bg-accent-cyan/20 text-accent-cyan flex items-center justify-center text-xs font-mono">3</span>
                 <span data-lang-en="Package Manager & CLI" data-lang-vi="Homebrew & CLI Core">Homebrew & CLI Core</span>
               </span>
               <i data-lucide="check" class="w-4 h-4 text-accent-cyan"></i>
             </a>
-            <a href="#phase-3" class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-800/80 text-accent-purple font-medium border border-accent-purple/20">
+            <a href="#phase-3" data-doc-page="phase-3" class="flex items-center justify-between px-3 py-2 rounded-lg text-accent-purple font-medium transition hover:bg-surface-800">
               <span class="flex items-center gap-2">
-                <span class="w-5 h-5 rounded-md bg-accent-purple/20 text-accent-purple flex items-center justify-center text-xs font-mono">3</span>
+                <span class="w-5 h-5 rounded-md bg-accent-purple/20 text-accent-purple flex items-center justify-center text-xs font-mono">4</span>
                 <span data-lang-en="Runtimes & Containers" data-lang-vi="Runtime & Đóng gói">Runtime & Đóng gói</span>
               </span>
               <i data-lucide="check" class="w-4 h-4 text-accent-purple"></i>
             </a>
-            <a href="#phase-4" class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-800/80 text-accent-rose font-medium border border-accent-rose/20">
+            <a href="#phase-4" data-doc-page="phase-4" class="flex items-center justify-between px-3 py-2 rounded-lg text-accent-rose font-medium transition hover:bg-surface-800">
               <span class="flex items-center gap-2">
-                <span class="w-5 h-5 rounded-md bg-accent-rose/20 text-accent-rose flex items-center justify-center text-xs font-mono">4</span>
+                <span class="w-5 h-5 rounded-md bg-accent-rose/20 text-accent-rose flex items-center justify-center text-xs font-mono">5</span>
                 <span data-lang-en="Vibe Coding & AI Stack" data-lang-vi="Vibe Coding & AI Stack">Vibe Coding & AI Stack</span>
               </span>
               <i data-lucide="check" class="w-4 h-4 text-accent-rose"></i>
             </a>
-            <a href="#phase-5" class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-800/80 text-accent-cyan font-medium border border-accent-cyan/20">
+            <a href="#phase-5" data-doc-page="phase-5" class="flex items-center justify-between px-3 py-2 rounded-lg text-accent-cyan font-medium transition hover:bg-surface-800">
               <span class="flex items-center gap-2">
-                <span class="w-5 h-5 rounded-md bg-accent-cyan/20 text-accent-cyan flex items-center justify-center text-xs font-mono">5</span>
+                <span class="w-5 h-5 rounded-md bg-accent-cyan/20 text-accent-cyan flex items-center justify-center text-xs font-mono">6</span>
                 <span data-lang-en="Terminal & Git Workflow" data-lang-vi="Terminal & Git Pro">Terminal & Git Pro</span>
               </span>
               <i data-lucide="check" class="w-4 h-4 text-accent-cyan"></i>
             </a>
-            <a href="#phase-6" class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-800/80 text-brand-500 font-medium border border-brand-500/20">
+            <a href="#phase-6" data-doc-page="phase-6" class="flex items-center justify-between px-3 py-2 rounded-lg text-brand-500 font-medium transition hover:bg-surface-800">
               <span class="flex items-center gap-2">
-                <span class="w-5 h-5 rounded-md bg-brand-500/20 text-brand-500 flex items-center justify-center text-xs font-mono">6</span>
+                <span class="w-5 h-5 rounded-md bg-brand-500/20 text-brand-500 flex items-center justify-center text-xs font-mono">7</span>
                 <span data-lang-en="Productivity Suite" data-lang-vi="Tiện ích & Năng suất">Tiện ích & Năng suất</span>
               </span>
               <i data-lucide="check" class="w-4 h-4 text-brand-500"></i>
             </a>
-            <a href="#optional-addons" class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-surface-800 transition">
+            <a href="#phase-7" data-doc-page="phase-7" class="flex items-center justify-between px-3 py-2 rounded-lg text-brand-500 font-medium transition hover:bg-surface-800">
               <span class="flex items-center gap-2">
-                <span class="w-5 h-5 rounded-md bg-accent-amber/20 text-accent-amber flex items-center justify-center text-xs font-mono">★</span>
-                <span data-lang-en="Optional Power Add-ons" data-lang-vi="Tiện ích Mở rộng Tùy chọn">Tiện ích Mở rộng Tùy chọn</span>
-              </span>
-            </a>
-            <a href="#phase-7" class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-800/80 text-brand-500 font-medium border border-brand-500/20">
-              <span class="flex items-center gap-2">
-                <span class="w-5 h-5 rounded-md bg-brand-500/20 text-brand-500 flex items-center justify-center text-xs font-mono">7</span>
+                <span class="w-5 h-5 rounded-md bg-brand-500/20 text-brand-500 flex items-center justify-center text-xs font-mono">8</span>
                 <span data-lang-en="Automation & Test" data-lang-vi="Tự động hóa & Kiểm tra">Tự động hóa & Kiểm tra</span>
               </span>
               <i data-lucide="check" class="w-4 h-4 text-brand-500"></i>
@@ -210,24 +204,14 @@
           </nav>
         </div>
 
-        <!-- Quick Tips Widget -->
-        <div class="p-4 rounded-xl bg-gradient-to-br from-brand-950/40 to-surface-900 border border-brand-500/20">
-          <div class="flex items-center gap-2 text-brand-500 text-xs font-bold uppercase tracking-wider mb-2">
-            <i data-lucide="zap" class="w-4 h-4"></i>
-            <span data-lang-en="Vibe Coding Tip" data-lang-vi="Mẹo Vibe Coding">Mẹo Vibe Coding</span>
-          </div>
-          <p class="text-xs text-slate-300 leading-relaxed" data-lang-en="In Cursor, use `@filename` to focus AI on specific files rather than entire codebase for 3x faster response and fewer hallucination errors." data-lang-vi="Trong Cursor, dùng `@tên_file` để nhắm mục tiêu chính xác file cần sửa thay vì để AI quét toàn bộ repo, giúp phản hồi nhanh gấp 3 lần và tránh sinh code thừa.">
-            Trong Cursor, dùng `@tên_file` để nhắm mục tiêu chính xác file cần sửa thay vì để AI quét toàn bộ repo, giúp phản hồi nhanh gấp 3 lần và tránh sinh code thừa.
-          </p>
-        </div>
       </div>
     </aside>
 
     <!-- Main Content Area -->
-    <main class="lg:col-span-9 space-y-6 sm:space-y-10 min-w-0">
+    <main id="docs-main" class="lg:col-span-9 space-y-6 sm:space-y-10 min-w-0">
 
       <!-- Hero Banner -->
-      <section class="relative overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-br from-surface-900 via-surface-900 to-surface-950 border border-slate-800 p-4 sm:p-6 md:p-8">
+      <section id="mindmap" class="relative overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-br from-surface-900 via-surface-900 to-surface-950 border border-slate-800 p-4 sm:p-6 md:p-8">
         <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="relative z-10 space-y-2.5 sm:space-y-3">
           <div class="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-500 text-[11px] sm:text-xs font-medium">
@@ -241,10 +225,8 @@
             Được tinh chỉnh tỉ mỉ cho tốc độ gõ phím tức thì, quy trình Vibe Coding với AI Agent, bộ CLI thế hệ mới mượt mà và quản lý môi trường độc lập.
           </p>
         </div>
-      </section>
-
       <!-- VISUAL ARCHITECTURE MINDMAP & ROADMAP OVERVIEW (100% EXHAUSTIVE) -->
-      <section id="mindmap" class="rounded-xl sm:rounded-2xl bg-surface-900 border border-slate-800 p-4 sm:p-6 space-y-4 sm:space-y-6 shadow-2xl relative overflow-hidden">
+      <div class="relative z-10 mt-6 rounded-xl sm:rounded-2xl bg-surface-900 border border-slate-800 p-4 sm:p-6 space-y-4 sm:space-y-6 shadow-2xl">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800/80 pb-3 sm:pb-4 gap-2">
           <div class="flex items-center space-x-2.5 sm:space-x-3">
             <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-accent-purple/30 via-brand-500/30 to-accent-cyan/30 flex items-center justify-center text-brand-500 border border-brand-500/30 shadow-lg shrink-0">
@@ -489,16 +471,17 @@
           </div>
 
         </div>
+      </div>
       </section>
 
       <!-- PHASE 1: macOS System & UX Foundation -->
       <section id="phase-1" class="space-y-4 sm:space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-800 gap-2">
           <div class="flex items-center space-x-2.5 sm:space-x-3">
-            <span class="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-brand-500/20 text-brand-500 font-mono font-bold text-xs sm:text-sm border border-brand-500/30 shrink-0">01</span>
+            <span class="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-brand-500/20 text-brand-500 font-mono font-bold text-xs sm:text-sm border border-brand-500/30 shrink-0">02</span>
             <div>
-              <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2" data-lang-en="Phase 1: macOS System & UX Foundation" data-lang-vi="Giai đoạn 1: Tối ưu macOS System & UX nền tảng">
-                <span>Giai đoạn 1: Tối ưu macOS System & UX nền tảng</span>
+              <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2" data-lang-en="Phase 2: macOS System & UX Foundation" data-lang-vi="Giai đoạn 2: Tối ưu macOS System & UX nền tảng">
+                <span>Giai đoạn 2: Tối ưu macOS System & UX nền tảng</span>
               </h3>
               <p class="text-[11px] sm:text-xs text-slate-400" data-lang-en="Eliminate input latency, enable developer view in Finder, and supercharge keyboard repeat." data-lang-vi="Xoá bỏ độ trễ bàn phím, kích hoạt góc nhìn chuẩn lập trình trong Finder và cử chỉ Trackpad nhanh.">
                 Xoá bỏ độ trễ bàn phím, kích hoạt góc nhìn chuẩn lập trình trong Finder và cử chỉ Trackpad nhanh.
@@ -619,10 +602,8 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 killall Finder</code></pre>
           </div>
         </div>
-      </section>
-
-      <!-- BACKUP & EXPORT SETTINGS TOOL SECTION -->
-      <section id="backup-restore" class="space-y-6">
+      <!-- BACKUP & EXPORT SETTINGS: child of the macOS foundation chapter -->
+      <div id="backup-restore" class="space-y-6 pt-4">
         <div class="flex items-center justify-between pb-3 border-b border-slate-800">
           <div class="flex items-center space-x-3">
             <span class="flex items-center justify-center w-8 h-8 rounded-xl bg-accent-amber/20 text-accent-amber font-mono font-bold text-sm border border-accent-amber/30">★</span>
@@ -716,16 +697,17 @@ killall Finder</code></pre>
             </div>
           </div>
         </div>
+      </div>
       </section>
 
       <!-- PHASE 2: Package Manager & Modern CLI Core -->
       <section id="phase-2" class="space-y-4 sm:space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-800 gap-2">
           <div class="flex items-center space-x-2.5 sm:space-x-3">
-            <span class="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-accent-cyan/20 text-accent-cyan font-mono font-bold text-xs sm:text-sm border border-accent-cyan/30 shrink-0">02</span>
+            <span class="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-accent-cyan/20 text-accent-cyan font-mono font-bold text-xs sm:text-sm border border-accent-cyan/30 shrink-0">03</span>
             <div>
-              <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2" data-lang-en="Phase 2: Package Manager & Modern CLI Core" data-lang-vi="Giai đoạn 2: Package Manager & Bộ CLI Hiện đại">
-                <span>Giai đoạn 2: Package Manager & Bộ CLI Hiện đại</span>
+              <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2" data-lang-en="Phase 3: Package Manager & Modern CLI Core" data-lang-vi="Giai đoạn 3: Package Manager & Bộ CLI Hiện đại">
+                <span>Giai đoạn 3: Package Manager & Bộ CLI Hiện đại</span>
               </h3>
               <p class="text-[11px] sm:text-xs text-slate-400" data-lang-en="Setup Xcode Command Line Tools, Homebrew, Starship prompt, and supercharged Rust/Go CLI utilities." data-lang-vi="Cài đặt Xcode CLI Tools, Homebrew, Starship prompt, và bộ công cụ dòng lệnh thế hệ mới viết bằng Rust/Go.">
                 Cài đặt Xcode CLI Tools, Homebrew, Starship prompt, và bộ công cụ dòng lệnh thế hệ mới viết bằng Rust/Go.
@@ -1067,10 +1049,10 @@ source ~/.zshrc</code></pre>
       <section id="phase-3" class="space-y-4 sm:space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-800 gap-2">
           <div class="flex items-center space-x-2.5 sm:space-x-3">
-            <span class="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-accent-purple/20 text-accent-purple font-mono font-bold text-xs sm:text-sm border border-accent-purple/30 shrink-0">03</span>
+            <span class="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-accent-purple/20 text-accent-purple font-mono font-bold text-xs sm:text-sm border border-accent-purple/30 shrink-0">04</span>
             <div>
-              <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2" data-lang-en="Phase 3: Runtime Manager & Containerization" data-lang-vi="Giai đoạn 3: Quản lý Runtime & Đóng gói Container">
-                <span>Giai đoạn 3: Quản lý Runtime & Đóng gói Container</span>
+              <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2" data-lang-en="Phase 4: Runtime Manager & Containerization" data-lang-vi="Giai đoạn 4: Quản lý Runtime & Đóng gói Container">
+                <span>Giai đoạn 4: Quản lý Runtime & Đóng gói Container</span>
               </h3>
               <p class="text-[11px] sm:text-xs text-slate-400" data-lang-en="Polyglot version manager `mise`, blazing-fast JS/Python tooling, and lightweight Docker alternative `OrbStack`." data-lang-vi="Quản lý đa phiên bản ngôn ngữ với `mise`, công cụ JS/Python siêu tốc và giải pháp Docker siêu nhẹ `OrbStack`.">
                 Quản lý đa phiên bản ngôn ngữ với `mise`, công cụ JS/Python siêu tốc và giải pháp Docker siêu nhẹ `OrbStack`.
@@ -1245,10 +1227,10 @@ brew install --cask orbstack</code></pre>
       <section id="phase-4" class="space-y-4 sm:space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-800 gap-2">
           <div class="flex items-center space-x-2.5 sm:space-x-3">
-            <span class="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-accent-rose/20 text-accent-rose font-mono font-bold text-xs sm:text-sm border border-accent-rose/30 shrink-0">04</span>
+            <span class="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-accent-rose/20 text-accent-rose font-mono font-bold text-xs sm:text-sm border border-accent-rose/30 shrink-0">05</span>
             <div>
-              <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2" data-lang-en="Phase 4: Vibe Coding & AI Toolchain Stack" data-lang-vi="Giai đoạn 4: Vibe Coding & Hệ sinh thái AI">
-                <span>Giai đoạn 4: Vibe Coding & Hệ sinh thái AI</span>
+              <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2" data-lang-en="Phase 5: Vibe Coding & AI Toolchain Stack" data-lang-vi="Giai đoạn 5: Vibe Coding & Hệ sinh thái AI">
+                <span>Giai đoạn 5: Vibe Coding & Hệ sinh thái AI</span>
               </h3>
               <p class="text-[11px] sm:text-xs text-slate-400" data-lang-en="AI-first editors, native desktop companions, autonomous agents, and local LLM acceleration on Apple Silicon." data-lang-vi="Editor tối ưu cho AI, trợ lý desktop toàn hệ thống, autonomous CLI agent và tăng tốc LLM offline trên chip Apple Silicon.">
                 Editor tối ưu cho AI, trợ lý desktop toàn hệ thống, autonomous CLI agent và tăng tốc LLM offline trên chip Apple Silicon.
@@ -2491,10 +2473,10 @@ Nghiệm thu: Chạy `npm test tests/rate-limit.test.ts`, báo cáo kết quả 
       <section id="phase-5" class="space-y-4 sm:space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-800 gap-2">
           <div class="flex items-center space-x-2.5 sm:space-x-3">
-            <span class="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-accent-cyan/20 text-accent-cyan font-mono font-bold text-xs sm:text-sm border border-accent-cyan/30 shrink-0">05</span>
+            <span class="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-accent-cyan/20 text-accent-cyan font-mono font-bold text-xs sm:text-sm border border-accent-cyan/30 shrink-0">06</span>
             <div>
-              <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2" data-lang-en="Phase 5: Professional Terminal & Git Workflow" data-lang-vi="Giai đoạn 5: Terminal & Quy trình Git Chuyên nghiệp">
-                <span>Giai đoạn 5: Terminal & Quy trình Git Chuyên nghiệp</span>
+              <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2" data-lang-en="Phase 6: Professional Terminal & Git Workflow" data-lang-vi="Giai đoạn 6: Terminal & Quy trình Git Chuyên nghiệp">
+                <span>Giai đoạn 6: Terminal & Quy trình Git Chuyên nghiệp</span>
               </h3>
               <p class="text-[11px] sm:text-xs text-slate-400" data-lang-en="GPU-accelerated Ghostty terminal, SSH Ed25519 with Keychain, verified commit signing, and smart Git aliases." data-lang-vi="Terminal Ghostty tăng tốc GPU, khoá SSH Ed25519 lưu Keychain, ký commit Verified và bộ alias Git siêu tốc.">
                 Terminal Ghostty tăng tốc GPU, khoá SSH Ed25519 lưu Keychain, ký commit Verified và bộ alias Git siêu tốc.
@@ -2696,10 +2678,10 @@ git config --global core.excludesfile ~/.gitignore_global</code></pre>
       <section id="phase-6" class="space-y-4 sm:space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-800 gap-2">
           <div class="flex items-center space-x-2.5 sm:space-x-3">
-            <span class="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-brand-500/20 text-brand-500 font-mono font-bold text-xs sm:text-sm border border-brand-500/30 shrink-0">06</span>
+            <span class="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-brand-500/20 text-brand-500 font-mono font-bold text-xs sm:text-sm border border-brand-500/30 shrink-0">07</span>
             <div>
-              <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2" data-lang-en="Phase 6: macOS Productivity Suite" data-lang-vi="Giai đoạn 6: Bộ Tiện Ích Năng Suất">
-                <span>Giai đoạn 6: Bộ Tiện Ích Năng Suất</span>
+              <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2" data-lang-en="Phase 7: macOS Productivity Suite" data-lang-vi="Giai đoạn 7: Bộ Tiện Ích Năng Suất">
+                <span>Giai đoạn 7: Bộ Tiện Ích Năng Suất</span>
               </h3>
               <p class="text-[11px] sm:text-xs text-slate-400" data-lang-en="Raycast launcher, Swift-native Shottr screenshot/OCR, Ice menu bar manager, BetterDisplay HiDPI, and Arc browser." data-lang-vi="Launcher Raycast thay Spotlight, chụp ảnh màn hình/OCR Shottr siêu nhẹ, ẩn icon Ice, mở khoá Retina BetterDisplay và Arc browser.">
                 Launcher Raycast thay Spotlight, chụp ảnh màn hình/OCR Shottr siêu nhẹ, ẩn icon Ice, mở khoá Retina BetterDisplay và Arc browser.
@@ -2882,10 +2864,8 @@ brew install --cask betterdisplay</code></pre>
 brew install --cask arc</code></pre>
           </div>
         </div>
-      </section>
-
-      <!-- OPTIONAL POWER ADD-ONS SECTION -->
-      <section id="optional-addons" class="space-y-4 sm:space-y-6">
+      <!-- OPTIONAL POWER ADD-ONS: child of the productivity chapter -->
+      <div id="optional-addons" class="space-y-4 sm:space-y-6 pt-4">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-800 gap-2">
           <div class="flex items-center space-x-2.5 sm:space-x-3">
             <span class="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-accent-amber/20 text-accent-amber font-mono font-bold text-xs sm:text-sm border border-accent-amber/30 shrink-0">★</span>
@@ -3054,15 +3034,16 @@ brew install --cask arc</code></pre>
           </div>
 
         </div>
+      </div>
       </section>
       <!-- PHASE 7: Full Automation & Healthcheck Verification -->
       <section id="phase-7" class="space-y-4 sm:space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-800 gap-2">
           <div class="flex items-center space-x-2.5 sm:space-x-3">
-            <span class="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-brand-500/20 text-brand-500 font-mono font-bold text-xs sm:text-sm border border-brand-500/30 shrink-0">07</span>
+            <span class="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-brand-500/20 text-brand-500 font-mono font-bold text-xs sm:text-sm border border-brand-500/30 shrink-0">08</span>
             <div>
-              <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2" data-lang-en="Phase 7: Full Automation & Verification Checklist" data-lang-vi="Giai đoạn 7: Tự Động Hóa 1-Click & Kiểm Tra Toàn Diện">
-                <span>Giai đoạn 7: Tự Động Hóa 1-Click & Kiểm Tra Toàn Diện</span>
+              <h3 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2" data-lang-en="Phase 8: Full Automation & Verification Checklist" data-lang-vi="Giai đoạn 8: Tự Động Hóa 1-Click & Kiểm Tra Toàn Diện">
+                <span>Giai đoạn 8: Tự Động Hóa 1-Click & Kiểm Tra Toàn Diện</span>
               </h3>
               <p class="text-[11px] sm:text-xs text-slate-400" data-lang-en="Install entire stack via 1-click Brewfile bundle and verify health with automated test script." data-lang-vi="Cài đặt trọn gói toàn bộ môi trường với 1 file Brewfile và kiểm tra tính sẵn sàng bằng script tự động.">
                 Cài đặt trọn gói toàn bộ môi trường với 1 file Brewfile và kiểm tra tính sẵn sàng bằng script tự động.
@@ -3147,14 +3128,24 @@ brew bundle --file=Brewfile</code></pre>
         </div>
       </section>
 
+      <nav id="doc-pagination" aria-label="Documentation pagination" class="flex items-center justify-between gap-3 border-t border-slate-800 pt-6"></nav>
+
       <!-- Footer -->
       <footer class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500 space-y-2">
         <p data-lang-en="Built for Modern Developers & Vibe Coding • macOS Apple Silicon" data-lang-vi="Dành riêng cho Lập trình viên hiện đại & Vibe Coding • macOS Apple Silicon">
           Dành riêng cho Lập trình viên hiện đại & Vibe Coding • macOS Apple Silicon
         </p>
+        <p>
+          <span data-lang-en="Made by" data-lang-vi="Thực hiện bởi">Made by</span>
+          <a href="https://www.linkedin.com/in/hoangvanhoa/" target="_blank" rel="noopener noreferrer" class="font-medium text-brand-500 hover:text-accent-cyan hover:underline">Nova Hoang</a>
+        </p>
       </footer>
     </main>
   </div>
+
+  <button id="back-to-top" type="button" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" aria-label="Back to top" title="Back to top" class="fixed bottom-6 right-6 z-40 hidden flex h-11 w-11 items-center justify-center rounded-full border border-slate-700 bg-surface-900/95 text-slate-300 shadow-lg shadow-surface-950/60 backdrop-blur transition hover:-translate-y-1 hover:border-brand-500/60 hover:bg-brand-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-500">
+    <i data-lucide="chevron-up" class="h-5 w-5"></i>
+  </button>
 
   <!-- Toast Notification for Copy -->
   <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-surface-800 border border-brand-500/30 text-white px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2 text-sm font-medium">
@@ -3168,7 +3159,7 @@ brew bundle --file=Brewfile</code></pre>
     lucide.createIcons();
 
     // Bilingual State Management
-    let currentLang = localStorage.getItem('mac_setup_lang') || 'vi';
+    let currentLang = localStorage.getItem('mac_setup_lang') || 'en';
 
     function setLanguage(lang) {
       currentLang = lang;
@@ -3176,6 +3167,7 @@ brew bundle --file=Brewfile</code></pre>
       
       const btnVi = document.getElementById('lang-btn-vi');
       const btnEn = document.getElementById('lang-btn-en');
+      const backToTop = document.getElementById('back-to-top');
       
       if (lang === 'vi') {
         btnVi.className = 'px-2.5 py-1 text-xs font-semibold rounded-md transition-all bg-brand-500 text-white shadow-sm';
@@ -3183,6 +3175,11 @@ brew bundle --file=Brewfile</code></pre>
       } else {
         btnEn.className = 'px-2.5 py-1 text-xs font-semibold rounded-md transition-all bg-brand-500 text-white shadow-sm';
         btnVi.className = 'px-2.5 py-1 text-xs font-semibold rounded-md text-slate-400 hover:text-white transition-all';
+      }
+      if (backToTop) {
+        const label = lang === 'vi' ? 'Lên đầu trang' : 'Back to top';
+        backToTop.setAttribute('aria-label', label);
+        backToTop.title = label;
       }
 
       // Update text in elements
@@ -3238,6 +3235,45 @@ brew bundle --file=Brewfile</code></pre>
       }
 
       updateCliCommand();
+      updateDocumentationPager();
+      setModalLanguage(lang);
+    }
+
+    // The architecture modal has prose and executable examples, so retain two
+    // independent versions of its content instead of leaving an untranslated
+    // mixture behind when the site language changes.
+    let modalVietnameseContent;
+    let modalEnglishContent;
+    function setModalLanguage(lang) {
+      const content = document.getElementById('agent-architecture-content');
+      if (!content || !modalVietnameseContent || !modalEnglishContent) return;
+      content.innerHTML = lang === 'vi' ? modalVietnameseContent : modalEnglishContent;
+      content.querySelectorAll('[data-lang-en]').forEach(el => {
+        const text = el.getAttribute(`data-lang-${lang}`);
+        if (text) el.textContent = text;
+      });
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+
+    function initializeModalTranslations() {
+      const content = document.getElementById('agent-architecture-content');
+      if (!content) return;
+      modalVietnameseContent = content.innerHTML;
+      const translations = [
+        ['Bắt buộc', 'Required'], ['Nội dung:', 'Contents:'], ['Luật bất biến:', 'Invariant rules:'], ['Công thức chuyên biệt:', 'Specialized recipes:'], ['Kích hoạt tự động:', 'Automatic triggers:'],
+        ['Khi phát triển song song nhiều tính năng, <strong>tuyệt đối không để nhiều Agent chạy chung một thư mục</strong>. Thay vào đó, mỗi Agent được cấp một Git Worktree độc lập:', 'When developing features in parallel, <strong>never let multiple agents work in the same directory</strong>. Give each agent an independent Git worktree instead:'],
+        ['Viết backend & database', 'Build backend & database'], ['Viết React & Tailwind CSS', 'Build React & Tailwind CSS'], ['Viết OpenAPI & Specs', 'Write OpenAPI & specs'],
+        ['• Chốt Contract Trước (Shared Schema):', '• Lock the contract first (shared schema):'], ['Main Agent định nghĩa sẵn file schema chung (`types/auth.ts`). Agent Frontend dựng UI theo contract đó, Agent Backend viết endpoint khớp 100% schema.', 'The main agent defines a shared schema file (`types/auth.ts`). The frontend agent builds against that contract and the backend agent implements endpoints that match the schema exactly.'],
+        ['• Giao Tiếp Phi Phong Tỏa (Non-Blocking Hub):', '• Non-blocking communication hub:'], ['Các Agent nhắn tin trao đổi qua Hub messaging phi tập trung, không chặn vòng lặp thực thi của nhau.', 'Agents exchange messages through a decentralized hub without blocking one another’s execution loops.'],
+        ['Trước khi hợp nhất code từ Worktree vào nhánh chính `main`, subagent', 'Before merging code from a worktree into the `main` branch, the'], ['sẽ kiểm tra độc lập theo 4 tiêu chuẩn:', 'subagents independently check four standards:'],
+        ['Đảm bảo chỉ sửa đúng các dòng được yêu cầu, không tự ý sửa format hoặc xóa comment của dự án.', 'Ensure only requested lines changed; do not reformat files or remove project comments.'], ['Tuyệt đối không dùng `any`, không ép kiểu lỏng lẻo (`as unknown as T`), giữ nguyên Type cha.', 'Never use `any` or unsafe casts (`as unknown as T`); preserve parent types.'], ['Bắt buộc xử lý các trạng thái biên: `null`, `undefined`, `empty array`, lỗi mạng timeout.', 'Handle edge states: `null`, `undefined`, empty arrays, and network timeouts.'], ['Quét lỗ hổng SQL Injection, Command Injection, hardcoded API key hoặc token rò rỉ.', 'Scan for SQL injection, command injection, hardcoded API keys, and leaked tokens.'],
+        ['Agent chạy trực tiếp test runner (`bun test`, `vitest`, `pytest`) hoặc bắn request cURL thật vào server ngầm:', 'The agent runs a test runner (`bun test`, `vitest`, `pytest`) directly or sends real cURL requests to the local server:'], ['✅ Nghiệm thu: Status 200, JWT token hợp lệ, DB cập nhật đúng.', '✅ Acceptance: status 200, a valid JWT token, and the correct database update.'], ['Agent điều khiển Chromium headless qua thiết bị `xd://browser`:', 'The agent controls headless Chromium through `xd://browser`:'], ['Mở URL dev', 'Open the development URL'], ['Quét cây Accessibility Tree (ARIA refs).', 'Inspect the accessibility tree (ARIA refs).'], ['Điền form và bấm nút thanh toán.', 'Fill in the form and click the payment button.'], ['Chụp ảnh màn hình làm bằng chứng trực quan.', 'Capture a screenshot as visual evidence.'], ['✅ Nghiệm thu: Form submit thành công + có ảnh chụp screenshot.', '✅ Acceptance: the form submits successfully and a screenshot is captured.'],
+        ['AI Lươn Lẹo (Tự sửa file test để pass giả tạo)', 'Agent cheats (edits tests to create a false pass)'], ['Trôi Ngữ Cảnh & Vòng Lặp Ảo Giác (Context Drift)', 'Context drift & hallucination loops'], ['Xung Đột File Đăng Ký Chung (Shared Mutation Boundary)', 'Shared registration-file conflict'], ['Xung Đột Database Migration & Database State', 'Database migration & state conflict'], ['Lệch Type Giữa Frontend & Backend (Type Drift)', 'Frontend/backend type drift'], ['UI Test Bị Kẹt Auth & Dynamic Modals', 'UI tests blocked by auth & dynamic modals'], ['Cháy Ngân Sách Token & Vòng Lặp Vô Tận', 'Token-budget burn & infinite loops'],
+        ['<strong>Vấn đề:</strong>', '<strong>Problem:</strong>'], ['<strong>Phòng thủ:</strong>', '<strong>Defense:</strong>'],
+        ['Khi chạy test fail, Agent tự ý sửa file test (xóa bớt assert, comment đoạn test khó) để báo cáo đã pass.', 'When a test fails, the agent edits test files (removing assertions or difficult cases) and falsely reports a pass.'], ['Quy định bất biến trong `.cursorrules`:', 'Set an invariant in `.cursorrules`:'], ['Cấm Agent sửa file trong `tests/`', 'Agents may not edit files in `tests/`'], ['thấy có diff trong test ➔ Reject ngay lập tức.', 'rejects any test-file diff immediately.'], ['Sau 10–15 lượt chat dài, context window đầy rác khiến Agent quên kiến trúc ban đầu và lặp lại lỗi cũ.', 'After 10–15 long turns, a noisy context window can make an agent forget the original architecture and repeat old mistakes.'], ['Áp dụng <em>Quy tắc 3 Lần (3-Strike Rule)</em>: Sửa 3 lần không xong ➔ Tóm tắt trạng thái vào artifact nhỏ (`local://handoff.md`), khởi tạo Agent mới tinh với context sạch để giải quyết tiếp.', 'Apply the <em>3-strike rule</em>: after three unsuccessful fixes, summarize status in a small artifact (`local://handoff.md`) and start a fresh agent with clean context.'], ['2 Agent ở 2 Worktree cùng sửa file router `routes/index.ts` hoặc `package.json` ➔ Xung đột Git merge conflict.', 'Two agents in separate worktrees edit `routes/index.ts` or `package.json` at the same time, causing a Git merge conflict.'], ['Các Worker Agent chỉ được phép tạo file mới độc lập (`routes/auth.ts`, `routes/product.ts`). <strong>Chỉ duy nhất Main Agent</strong> mới có quyền mở file chung để đăng ký router và dependencies.', 'Worker agents may only create independent files (`routes/auth.ts`, `routes/product.ts`). <strong>Only the main agent</strong> may edit shared files to register routes and dependencies.'], ['2 Agent cùng chạy migrate tạo ra 2 timestamp conflict phá vỡ cấu trúc database.', 'Two agents run migrations and create conflicting timestamps that break the database structure.'], ['Main Agent chốt file migration trước. Mỗi Worktree chạy test trên In-memory SQLite hoặc Schema database riêng biệt (`db_test_agent_a`).', 'The main agent locks migration files first. Each worktree tests against in-memory SQLite or its own database schema (`db_test_agent_a`).'], ['Backend sửa key JSON mà Frontend không biết ➔ Lỗi TypeError trắng trang.', 'The backend changes a JSON key without the frontend knowing, causing a blank-page TypeError.'], ['Dùng Zod Schema làm Single Source of Truth (`z.infer<typeof Schema>`). Nếu Backend sửa schema, TypeScript compiler (`tsc --noEmit`) sẽ báo đỏ ngay lập tức.', 'Use a Zod schema as the single source of truth (`z.infer<typeof Schema>`). If the backend changes the schema, the TypeScript compiler (`tsc --noEmit`) fails immediately.'], ['Headless Browser bị kẹt ở trang login hoặc modal quảng cáo che mất nút click.', 'The headless browser gets stuck on the login page or an advertising modal covers the target button.'], ['Nạp sẵn file `storageState.json` (cookie session) vào browser để vào thẳng Dashboard; dùng ARIA Accessibility Ref (`aria-ref="submit"`) thay vì CSS selector dễ vỡ.', 'Load `storageState.json` (the session cookie) into the browser to enter the dashboard directly; use ARIA accessibility refs (`aria-ref="submit"`) instead of brittle CSS selectors.'], ['AI loop sửa lỗi qua đêm làm tốn hàng chục USD token không cần thiết.', 'An overnight AI repair loop wastes tens of dollars in unnecessary tokens.'], ['Đặt trần ngân sách cứng (Hard Ceiling: `$2/task` hoặc `100k tokens`). Giao task đọc file/pattern cho `scout` (DeepSeek V3 / Qwen Local rẻ/miễn phí) và chỉ dùng Claude 3.7 cho sinh code logic.', 'Set a hard budget ceiling (`$2/task` or `100k tokens`). Give file/pattern scouting to `scout` (low-cost or free DeepSeek V3 / Qwen Local) and reserve Claude 3.7 for logic generation.'],
+        ['Khởi Tạo Cấu Trúc Thư Mục & File Spec/Plan Mẫu', 'Create the folder structure & sample spec/plan'], ['Chạy lệnh tạo thư mục specs và rules chuẩn hóa:', 'Run this command to create standardized specs and rules directories:'], ['Tạo file spec mẫu', 'Create the sample spec file'], ['làm kim chỉ nam bắt buộc:', 'as the required guide:'], ['Tạo Các Git Worktrees Độc Lập Cho Từng Agent', 'Create independent Git worktrees for each agent'], ['Tạo 2 thư mục làm việc riêng biệt từ nhánh `main` để Agent Backend & Frontend chạy song song:', 'Create two independent workspaces from `main` so backend and frontend agents can work in parallel:'], ['Chốt Shared Contract Schema & Phân Việc Cho Subagents', 'Lock the shared contract schema & dispatch subagents'], ['Main Agent tạo file schema dùng chung', 'The main agent creates the shared schema file'], ['trước khi các Agent code:', 'before agents write code:'], ['Chạy Agent Backend tại', 'Run the backend agent in'], ['và Agent Frontend tại', 'and the frontend agent in'], ['theo prompt trong Spec.', 'using the prompt in the spec.'], ['Quy Trình Code Review Tự Động Trước Khi Merge', 'Automated code review before merge'], ['Xuất Git diff và triệu hồi subagent Reviewer kiểm tra:', 'Export the Git diff and ask a reviewer subagent to inspect it:'], ['Chạy Bộ Test Thực Chiến (API cURL + Headless UI User Click)', 'Run real-world tests (API cURL + headless UI clicks)'], ['Script kiểm thử API thật', 'The real API test script'], ['Script Headless Browser tự động click UI và chụp ảnh màn hình bằng chứng', 'The headless-browser script automatically clicks the UI and captures acceptance evidence'], ['Merge Nhánh Vào Main & Dọn Dẹp Git Worktree', 'Merge branches into main & clean up Git worktrees'], ['Sau khi test pass, quay về thư mục gốc, merge code và giải phóng worktree:', 'After tests pass, return to the repository root, merge the code, and remove the worktrees:'], ['Sao chép', 'Copy']
+      ];
+      modalEnglishContent = translations.reduce((html, [vi, en]) => html.split(vi).join(en), modalVietnameseContent);
     }
 
     // Dynamic CLI Installation Command Generator
@@ -3344,6 +3380,97 @@ brew bundle --file=Brewfile</code></pre>
       }
     }
 
+    // Documentation-style navigation: one chapter is visible at a time while
+    // keeping the guide shareable through its existing section anchors.
+    const docPageLabels = {
+      mindmap: { en: '01 Overview', vi: '01 Tổng quan' },
+      'phase-1': { en: '02 macOS System & UX', vi: '02 Hệ thống macOS & UX' },
+      'phase-2': { en: '03 Package Manager & CLI', vi: '03 Homebrew & CLI Core' },
+      'phase-3': { en: '04 Runtimes & Containers', vi: '04 Runtime & Đóng gói' },
+      'phase-4': { en: '05 Vibe Coding & AI Stack', vi: '05 Vibe Coding & AI Stack' },
+      'phase-5': { en: '06 Terminal & Git Workflow', vi: '06 Terminal & Git Pro' },
+      'phase-6': { en: '07 Productivity Suite', vi: '07 Tiện ích & Năng suất' },
+      'phase-7': { en: '08 Automation & Verification', vi: '08 Tự động hóa & Kiểm tra' },
+    };
+    let activeDocPage = 0;
+
+    function getDocPages() {
+      return [...document.querySelectorAll('#docs-main > section')];
+    }
+
+    function showDocPage(index, { updateHash = true, scroll = true } = {}) {
+      const pages = getDocPages();
+      if (!pages.length) return;
+      activeDocPage = Math.max(0, Math.min(index, pages.length - 1));
+      pages.forEach((page, pageIndex) => {
+        page.classList.add('doc-page');
+        page.hidden = pageIndex !== activeDocPage;
+      });
+      if (updateHash) history.replaceState(null, '', `#${pages[activeDocPage].id}`);
+      updateActiveDocNav();
+      updateDocumentationPager();
+      if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateActiveDocNav() {
+      const activeId = getDocPages()[activeDocPage]?.id;
+      document.querySelectorAll('#sidebar-doc-nav a[data-doc-page]').forEach(link => {
+        const isActive = link.dataset.docPage === activeId;
+        link.setAttribute('aria-current', isActive ? 'page' : 'false');
+        link.classList.toggle('bg-surface-800', isActive);
+        link.classList.toggle('border', isActive);
+        link.classList.toggle('border-brand-500/50', isActive);
+        link.classList.toggle('shadow-lg', isActive);
+        link.classList.toggle('shadow-brand-500/10', isActive);
+        link.classList.toggle('translate-x-1', isActive);
+      });
+    }
+
+    function updateDocumentationPager() {
+      const pager = document.getElementById('doc-pagination');
+      const pages = getDocPages();
+      if (!pager || !pages.length) return;
+      const previous = pages[activeDocPage - 1];
+      const next = pages[activeDocPage + 1];
+      const lang = currentLang || 'en';
+      const previousLabel = previous ? docPageLabels[previous.id]?.[lang] || previous.id : '';
+      const nextLabel = next ? docPageLabels[next.id]?.[lang] || next.id : '';
+      pager.innerHTML = `
+        <button type="button" ${previous ? '' : 'disabled'} onclick="showDocPage(${activeDocPage - 1})" class="group inline-flex min-w-0 items-center gap-2 rounded-lg border border-slate-800 bg-surface-900 px-3 py-2 text-left text-xs transition hover:border-brand-500/50 disabled:cursor-not-allowed disabled:opacity-35">
+          <i data-lucide="arrow-left" class="h-4 w-4 text-brand-500"></i><span><span class="block text-[10px] text-slate-500">${lang === 'vi' ? 'Trước' : 'Previous'}</span><span class="block max-w-28 truncate text-slate-200">${previousLabel}</span></span>
+        </button>
+        <span class="hidden text-center text-[11px] font-mono text-slate-500 sm:block">${activeDocPage + 1} / ${pages.length}</span>
+        <button type="button" ${next ? '' : 'disabled'} onclick="showDocPage(${activeDocPage + 1})" class="group ml-auto inline-flex min-w-0 items-center gap-2 rounded-lg border border-slate-800 bg-surface-900 px-3 py-2 text-right text-xs transition hover:border-brand-500/50 disabled:cursor-not-allowed disabled:opacity-35">
+          <span><span class="block text-[10px] text-slate-500">${lang === 'vi' ? 'Tiếp theo' : 'Next'}</span><span class="block max-w-28 truncate text-slate-200">${nextLabel}</span></span><i data-lucide="arrow-right" class="h-4 w-4 text-brand-500"></i>
+        </button>`;
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+
+    function setupDocumentationNavigation() {
+      const pages = getDocPages();
+      const fromHash = document.getElementById(location.hash.slice(1));
+      const destination = fromHash?.closest('#docs-main > section');
+      showDocPage(Math.max(0, pages.indexOf(destination)), { updateHash: !destination, scroll: false });
+      document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', event => {
+        const target = document.getElementById(link.getAttribute('href').slice(1));
+        const page = target?.closest('#docs-main > section');
+        if (!page) return;
+        event.preventDefault();
+        showDocPage(getDocPages().indexOf(page));
+      }));
+      window.addEventListener('hashchange', () => {
+        const page = document.getElementById(location.hash.slice(1))?.closest('#docs-main > section');
+        if (page) showDocPage(getDocPages().indexOf(page), { updateHash: false });
+      });
+    }
+
+    function setupBackToTop() {
+      const button = document.getElementById('back-to-top');
+      const toggle = () => button.classList.toggle('hidden', window.scrollY < 320);
+      window.addEventListener('scroll', toggle, { passive: true });
+      toggle();
+    }
+
     // Close modal on Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
@@ -3354,8 +3481,11 @@ brew bundle --file=Brewfile</code></pre>
 
     // Init language & dynamic CLI on load
     document.addEventListener('DOMContentLoaded', () => {
+      initializeModalTranslations();
       setLanguage(currentLang);
       updateCliCommand();
+      setupDocumentationNavigation();
+      setupBackToTop();
     });
   </script>
 
@@ -3385,7 +3515,7 @@ brew bundle --file=Brewfile</code></pre>
       </div>
 
       <!-- Modal Scrollable Content -->
-      <div class="p-4 sm:p-6 overflow-y-auto space-y-6 text-xs text-slate-300 leading-relaxed custom-scrollbar">
+      <div id="agent-architecture-content" class="p-4 sm:p-6 overflow-y-auto space-y-6 text-xs text-slate-300 leading-relaxed custom-scrollbar">
         
         <!-- SECTION 1: Specs, Plans, Rules, Skills & Hooks -->
         <div class="space-y-3">

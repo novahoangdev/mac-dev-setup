@@ -19,6 +19,7 @@ The **Ultimate Mac Dev & Vibe Coding Setup** is a modern, step-by-step setup gui
 ### ✨ Key Features
 
 - 🌐 **Bilingual Interactive Guide (`index.html`)**: Instant switching between English and Vietnamese.
+- 📚 **Documentation Navigation**: An eight-section, Previous/Next reading flow; settings export/restore and optional utilities are organized as child sections of their relevant setup chapters.
 - 📋 **1-Click Copy**: Copy terminal commands and shell configs with visual toast feedback.
 - ⚡ **Vibe Coding & AI-First Stack**: Tailored for tools like Cursor, Zed, Claude Code, Starship, and MCP.
 - 🔄 **macOS Settings Backup & Restore**: One-command export of your exact trackpad gestures, keyboard repeat rates, Finder, and Dock configurations into a standalone restore script.
@@ -83,6 +84,7 @@ bash backups/apply-my-settings.en.sh
 ### ✨ Tính năng nổi bật
 
 - 🌐 **Giao diện web trực quan (`index.html`)**: Chuyển đổi ngôn ngữ Tiếng Anh / Tiếng Việt linh hoạt chỉ với 1 click.
+- 📚 **Điều hướng dạng tài liệu**: Luồng đọc gồm tám phần với Previous/Next; tính năng xuất/khôi phục setting và tiện ích mở rộng được đặt làm phần con của các giai đoạn liên quan.
 - 📋 **Sao chép 1-Click**: Tích hợp nút copy cho mọi câu lệnh terminal và cấu hình shell kèm thông báo toast.
 - ⚡ **Tối ưu Vibe Coding & AI**: Chuẩn hóa cấu hình cho Cursor, Zed, Claude Code, Starship prompt và MCP.
 - 🔄 **Tự động sao lưu & Khôi phục Setting**: Trích xuất toàn bộ cử chỉ trackpad (vuốt 4 ngón, chạm 2 ngón), tốc độ phím, Finder, Dock thành script độc lập để khôi phục trên máy mới trong 2 giây.
