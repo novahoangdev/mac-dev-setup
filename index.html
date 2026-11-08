@@ -115,8 +115,8 @@ xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 <span class="text-slate-500"># 2. Clone the repo and install the whole stack</span>
-git clone https://github.com/novahoangdev/setup-dev-mac.git ~/setup-dev-mac
-cd ~/setup-dev-mac &amp;&amp; brew bundle --file=Brewfile
+git clone https://github.com/novahoangdev/mac-dev-setup.git ~/mac-dev-setup
+cd ~/mac-dev-setup &amp;&amp; brew bundle --file=Brewfile
 
 <span class="text-slate-500"># 3. Claude Code (native installer, auto-updates)</span>
 curl -fsSL https://claude.ai/install.sh | bash
@@ -520,7 +520,7 @@ bash scripts/verify-setup.sh          <span class="text-slate-500"># add --vi fo
   </div>
 
   <footer class="border-t border-slate-800 py-6 text-center text-xs text-slate-500">
-    Hoa Hoang · <a class="ext" href="https://github.com/novahoangdev/setup-dev-mac">github.com/novahoangdev/setup-dev-mac</a>
+    Hoa Hoang · <a class="ext" href="https://github.com/novahoangdev/mac-dev-setup">github.com/novahoangdev/mac-dev-setup</a>
   </footer>
 
   <div id="toast" class="fixed bottom-6 right-6 z-50 translate-y-20 opacity-0 transition-all duration-300 bg-surface-800 border border-brand-500/30 text-white px-4 py-2.5 rounded-xl shadow-2xl text-sm"></div>

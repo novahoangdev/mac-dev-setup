@@ -13,7 +13,7 @@ A macOS (Apple Silicon) setup for vibe coding with many AI agents: Claude Code, 
 ### Structure
 
 ```text
-setup-dev-mac/
+mac-dev-setup/
 ├── index.html                      # Bilingual guide: steps, copy buttons, saved checklist (works offline)
 ├── assets/styles.css               # Prebuilt CSS for the guide (generated)
 ├── src/styles.css                  # CSS source + tailwind.config.js
@@ -37,8 +37,8 @@ setup-dev-mac/
 xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-git clone https://github.com/novahoangdev/setup-dev-mac.git ~/setup-dev-mac
-cd ~/setup-dev-mac
+git clone https://github.com/novahoangdev/mac-dev-setup.git ~/mac-dev-setup
+cd ~/mac-dev-setup
 brew bundle --file=Brewfile
 curl -fsSL https://claude.ai/install.sh | bash   # Claude Code
 bash backups/apply-my-settings.sh                # restore macOS settings
@@ -71,7 +71,7 @@ Bộ setup macOS (Apple Silicon) cho vibe coding với nhiều AI agent: Claude 
 ### Cấu trúc
 
 ```text
-setup-dev-mac/
+mac-dev-setup/
 ├── index.html                      # Guide song ngữ: từng bước, nút copy, checklist lưu tiến độ (chạy offline)
 ├── assets/styles.css               # CSS đã build cho guide (sinh tự động)
 ├── src/styles.css                  # Nguồn CSS + tailwind.config.js
@@ -95,8 +95,8 @@ setup-dev-mac/
 xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-git clone https://github.com/novahoangdev/setup-dev-mac.git ~/setup-dev-mac
-cd ~/setup-dev-mac
+git clone https://github.com/novahoangdev/mac-dev-setup.git ~/mac-dev-setup
+cd ~/mac-dev-setup
 brew bundle --file=Brewfile
 curl -fsSL https://claude.ai/install.sh | bash   # Claude Code
 bash backups/apply-my-settings.sh                # khôi phục setting macOS
