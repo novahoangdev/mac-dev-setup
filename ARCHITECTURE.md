@@ -51,3 +51,11 @@ Short record of why the project looks the way it does. Newest decisions win; his
 **Decision:** `scripts/export-macos-settings.sh` reads a fixed list of `defaults` keys (read-only) and writes `backups/apply-my-settings.sh`. Arrays/dicts are skipped.
 
 **Consequence:** `defaults` keys can change between macOS versions; re-export on the newest Mac before migrating.
+
+## ADR-009 — Firebase Hosting with an allowlist build
+
+**Decision:** Host the guide on Firebase Hosting (project `setup-dev-mac`). `scripts/build-site.sh` (predeploy hook) copies only `index.html` and `assets/` into `dist/`, which is the Hosting `public` dir. GitHub Actions deploy `main` to live and each PR to a 7-day preview channel.
+
+**Why:** A first attempt published the repo root with an ignore list; `**/.*` did not exclude files inside `.git/`, so repo history was briefly downloadable from a preview URL. An allowlist cannot leak new files by accident.
+
+**Consequence:** If the site ever needs another file, add it to `scripts/build-site.sh` explicitly.

@@ -3,3 +3,5 @@
 .env
 .env.*
 .playwright-mcp/
+dist/
+.firebase/

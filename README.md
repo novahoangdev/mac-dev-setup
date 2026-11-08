@@ -1,5 +1,7 @@
 # Mac Dev & Vibe Coding Setup
 
+**Live guide: https://setup-dev-mac.web.app**
+
 **[English](#english) | [Tiếng Việt](#tiếng-việt)**
 
 ---
@@ -19,7 +21,10 @@ setup-dev-mac/
 ├── scripts/
 │   ├── export-macos-settings.sh    # Reads current macOS settings → backups/apply-my-settings.sh
 │   ├── verify-setup.sh             # Health check for the whole stack
-│   └── build-css.sh                # Rebuilds assets/styles.css after editing index.html
+│   ├── build-css.sh                # Rebuilds assets/styles.css after editing index.html
+│   └── build-site.sh               # Builds dist/ (index.html + assets only) for Firebase Hosting
+├── firebase.json · .firebaserc     # Firebase Hosting config (project setup-dev-mac)
+├── .github/workflows/              # Auto deploy: main → live, PR → preview URL
 ├── backups/
 │   └── apply-my-settings.sh        # Settings restore script (generated)
 ├── ARCHITECTURE.md                 # Why things are the way they are
@@ -49,6 +54,14 @@ bash scripts/export-macos-settings.sh   # on the old Mac (read-only); output is 
 bash backups/apply-my-settings.sh       # on the new Mac
 ```
 
+### Deploy
+
+Pushing to `main` deploys to https://setup-dev-mac.web.app via GitHub Actions; every PR gets a preview URL (7 days). Only `index.html` and `assets/` are published. Manual deploy:
+
+```bash
+firebase deploy --only hosting
+```
+
 ---
 
 ## Tiếng Việt
@@ -66,7 +79,10 @@ setup-dev-mac/
 ├── scripts/
 │   ├── export-macos-settings.sh    # Đọc setting macOS hiện tại → backups/apply-my-settings.sh
 │   ├── verify-setup.sh             # Kiểm tra toàn bộ stack
-│   └── build-css.sh                # Build lại assets/styles.css sau khi sửa index.html
+│   ├── build-css.sh                # Build lại assets/styles.css sau khi sửa index.html
+│   └── build-site.sh               # Tạo dist/ (chỉ index.html + assets) cho Firebase Hosting
+├── firebase.json · .firebaserc     # Cấu hình Firebase Hosting (project setup-dev-mac)
+├── .github/workflows/              # Auto deploy: main → live, PR → link preview
 ├── backups/
 │   └── apply-my-settings.sh        # Script khôi phục setting (được sinh tự động)
 ├── ARCHITECTURE.md                 # Lý do của các quyết định
@@ -94,6 +110,14 @@ Cấu hình zsh, nvm, OmniRoute, Git nhiều tài khoản… xem chi tiết tron
 ```bash
 bash scripts/export-macos-settings.sh   # trên máy cũ (chỉ đọc), thêm --vi để in tiếng Việt
 bash backups/apply-my-settings.sh       # trên máy mới
+```
+
+### Deploy
+
+Push lên `main` sẽ tự deploy lên https://setup-dev-mac.web.app qua GitHub Actions; mỗi PR có một link preview (7 ngày). Chỉ `index.html` và `assets/` được public. Deploy tay:
+
+```bash
+firebase deploy --only hosting
 ```
 
 ---
