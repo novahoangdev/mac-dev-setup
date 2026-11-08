@@ -1,0 +1,37 @@
+/* Source for assets/styles.css — rebuild with: bash scripts/build-css.sh */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  html[data-ui="vi"] body [lang="en"], html[data-ui="en"] body [lang="vi"] { display: none !important; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #0f172a; }
+  ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
+}
+
+@layer components {
+  .card { @apply min-w-0 rounded-xl border border-slate-800 bg-surface-900 p-4 sm:p-5 space-y-3; }
+  .card h4 { @apply font-semibold text-white text-sm sm:text-base; }
+  .card p, .card li { @apply text-sm text-slate-300 leading-relaxed; }
+  .sec-head { @apply flex items-start gap-3 pb-3 border-b border-slate-800; }
+  .sec-num { @apply w-9 h-9 rounded-xl flex items-center justify-center font-mono font-bold text-sm shrink-0; }
+  .sec-head h3 { @apply text-lg sm:text-xl font-bold text-white; }
+  .sec-head p { @apply text-xs sm:text-sm text-slate-400; }
+  .code-wrap { @apply relative; }
+  .code-wrap pre { @apply overflow-x-auto rounded-lg border border-slate-800 bg-surface-950 p-3 pr-20 text-xs sm:text-[13px] font-mono text-slate-200 leading-relaxed; }
+  .copy-btn { @apply absolute top-2 right-2 inline-flex items-center gap-1 rounded-md border border-slate-700 bg-surface-800 px-2 py-1 text-[11px] text-slate-300 hover:text-white hover:border-brand-500 transition; }
+  code.inline { @apply [overflow-wrap:anywhere] font-mono text-[0.85em] text-accent-cyan bg-surface-950 border border-slate-800 rounded px-1 py-0.5; }
+  .step { @apply flex items-start gap-2.5 cursor-pointer select-none; }
+  .step input { @apply mt-1 w-4 h-4 accent-emerald-500 shrink-0; }
+  .tag { @apply inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] font-mono; }
+  .tbl { @apply w-full text-left text-xs sm:text-sm; }
+  .tbl th { @apply p-2 text-slate-400 font-medium border-b border-slate-800; }
+  .tbl td { @apply p-2 text-slate-300 border-b border-slate-800/60 align-top; }
+  .nav-link { @apply flex items-center gap-2 px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-surface-800 transition text-sm; }
+  .nav-link span.n { @apply w-5 h-5 rounded-md bg-surface-800 text-[11px] font-mono flex items-center justify-center; }
+  a.ext { @apply text-accent-cyan hover:underline; }
+}
